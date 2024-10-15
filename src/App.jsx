@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Login from './Components/Login';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,6 +45,7 @@ function App() {
         </p>
         <button className="btn btn-info btn-lg text-white">Read More</button>
       </main>
+    <Login />
     </div>
   );
 }
