@@ -5,11 +5,15 @@ import Login from './Components/Login';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
-
+  const handleLoginClick=()=>{
+    setShowLogin(true);
+    setIsOpen(false);
+  }
   return (
     <div className="App bg-primary vh-100 text-white">
       <header className="d-flex justify-content-between align-items-center p-3">
@@ -36,7 +40,8 @@ function App() {
         </nav>
       )}
 
-      <main className="text-center mt-5">
+      {!showLogin ? (
+        <main className="text-center mt-5">
         <h2 className="display-4 fw-bold">COMPLETE INSURANCE COVERAGE</h2>
         <p className="lead">
           Protect what matters most with our comprehensive insurance solutions.
@@ -45,7 +50,9 @@ function App() {
         </p>
         <button className="btn btn-info btn-lg text-white">Read More</button>
       </main>
-    <Login />
+      ):(
+        <Login />
+      )}
     </div>
   );
 }
