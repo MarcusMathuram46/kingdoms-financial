@@ -10,12 +10,15 @@ function Login() {
   const handleLogin = async(e) => {
     e.preventDefault();
     try{
+      console.log('sending request with', userName, password)
       const response = await axios.post('http://localhost:5173/api/login',{
         username: userName,
         password: password
       })
+      console.log('response', response)
       setMessage(response.data.message)
     }catch(err){
+      console.error('Error', err)
       setMessage('Invalid username or password')
     }
 

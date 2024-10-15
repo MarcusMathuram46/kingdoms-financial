@@ -34,3 +34,6 @@
 .navbar-menu a:hover {
   color: #00ccff;
 }
+html{
+  scroll-behaviour: smooth;
+}
