@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Navbar.css';
-
-function Navbar() {
+import '../styles/Login.css';
+function Navbar({ onLoginClick }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -26,7 +26,7 @@ function Navbar() {
           <li><a href="#services">SERVICES</a></li>
           <li><a href="#why-us">WHY US</a></li>
           <li><a href="#enquiry">ENQUIRY</a></li>
-          <li><a href="#login">LOGIN</a></li>
+          <li><button onClick={onLoginClick} className="login-button">LOGIN</button></li>
         </ul>
       </nav>
     </header>

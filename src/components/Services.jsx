@@ -3,7 +3,7 @@ import '../styles/Services.css'; // Assuming you will create a CSS file for styl
 
 function Services() {
   return (
-    <div className="services-container">
+    <div id='services' className="services-container">
       <h2 className="services-title">Our Services</h2>
       <p className="services-description">
         Empowering your financial future with expert guidance, innovative solutions, and personalized service.

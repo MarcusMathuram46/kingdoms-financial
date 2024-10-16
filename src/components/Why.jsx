@@ -3,7 +3,7 @@ import '../styles/Why.css'; // Assuming you will create a CSS file for styling
 
 function Why() {
   return (
-    <div className="why-container">
+    <div id='why-us' className="why-container">
       <h2 className="why-title">Why Choose Us</h2>
       
       <div className="why-section">

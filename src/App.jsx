@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Importing JS is crucial for functionality
 import Navbar from './components/Navbar';
-import Login from './Components/Login';
-import './styles/App.css'
+import Login from './components/Login';
+import './styles/App.css';
 import Home from './components/Home';
 import Services from './components/Services';
 import About from './components/About';
 import Why from './components/Why';
 import Enquiry from './components/Enquiry';
 import Footer from './components/Footer';
+
 function App() {
-   return (
+  const [showLogin, setShowLogin] = useState(false);
+
+  const handleLoginClick = () => {
+    setShowLogin(true);
+  };
+
+  const closeLogin = () => {
+    setShowLogin(false);
+  };
+
+  return (
     <div className="App">
-      <Navbar />
+      <Navbar onLoginClick={handleLoginClick} />
       <main>
         <Home />
       </main>
@@ -21,12 +31,10 @@ function App() {
       <About />
       <Why />
       <Enquiry />
-      <Login />
+      <Login show={showLogin} onClose={closeLogin} />
       <Footer />
     </div>
-  )
+  );
 }
 
 export default App;
-
-
