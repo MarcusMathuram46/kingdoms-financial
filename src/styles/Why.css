@@ -1,0 +1,41 @@
+.why-container {
+    background-color: #f9f9f9; /* Light background for contrast */
+    color: #333; /* Dark text for readability */
+    padding: 40px 20px;
+    max-width: 1200px; /* Limit max width */
+    margin: 0 auto; /* Center the container */
+  }
+  
+  .why-title {
+    text-align: center; /* Center title */
+    margin-bottom: 30px; /* Space below title */
+    font-size: 2.5rem; /* Font size for title */
+  }
+  
+  .why-section {
+    margin-bottom: 30px; /* Space below each section */
+  }
+  
+  .why-section h3 {
+    font-size: 1.75rem; /* Font size for section headings */
+    margin-bottom: 10px; /* Space below section headings */
+  }
+  
+  .read-more {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Space above button */
+  }
+  
+  .btn-info {
+    background-color: #00bfff; /* Bright button color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 4px; /* Rounded corners */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .btn-info:hover {
+    background-color: #008cba; /* Darker color on hover */
+  }
+  

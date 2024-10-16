@@ -1,0 +1,71 @@
+.about-container {
+    background-color: #f4f4f4; /* Light background for contrast */
+    color: #333; /* Dark text for readability */
+    padding: 40px;
+    text-align: center; /* Center align text */
+    border-radius: 8px; /* Slight rounding for a softer look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px; /* Space around the container */
+}
+
+.about-title {
+    font-size: 2.5rem; /* Large title font */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.about-description {
+    font-size: 1.25rem; /* Description font size */
+    line-height: 1.6; /* Improve readability */
+    max-width: 800px; /* Limit width for readability */
+    margin: 0 auto; /* Center the description */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-title {
+        font-size: 2rem; /* Smaller title on mobile */
+    }.about-container {
+        background-color: #f4f4f4; /* Light background for contrast */
+        color: #333; /* Dark text for readability */
+        padding: 40px;
+        text-align: center; /* Center align text */
+        border-radius: 8px; /* Slight rounding for a softer look */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        margin: 20px; /* Space around the container */
+    }
+    
+    .about-title {
+        font-size: 2.5rem; /* Large title font */
+        margin-bottom: 20px; /* Space below the title */
+    }
+    
+    .about-description {
+        font-size: 1.25rem; /* Description font size */
+        line-height: 1.6; /* Improve readability */
+        max-width: 800px; /* Limit width for readability */
+        margin: 0 auto; /* Center the description */
+        margin-bottom: 20px; /* Space below description */
+    }
+    
+    .read-more-button {
+        font-size: 1rem; /* Button font size */
+        padding: 10px 20px; /* Padding for button */
+        border-radius: 5px; /* Round the button */
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .about-title {
+            font-size: 2rem; /* Smaller title on mobile */
+        }
+    
+        .about-description {
+            font-size: 1rem; /* Smaller description on mobile */
+        }
+    }
+    
+
+    .about-description {
+        font-size: 1rem; /* Smaller description on mobile */
+    }
+}

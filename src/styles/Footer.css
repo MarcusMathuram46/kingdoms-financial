@@ -1,0 +1,68 @@
+.footer {
+    background-color: #003366; /* Matching the theme */
+    color: white; /* White text for contrast */
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around; /* Space sections evenly */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    max-width: 1200px; /* Limit the maximum width */
+    margin: 0 auto; /* Center the container */
+  }
+  
+  .footer-section {
+    flex: 1; /* Equal width for all sections */
+    padding: 10px;
+    min-width: 200px; /* Minimum width to avoid too narrow sections */
+  }
+  
+  .footer-section h3 {
+    margin-bottom: 10px; /* Space below headers */
+  }
+  
+  .footer-section p,
+  .footer-section ul {
+    margin: 5px 0; /* Space for paragraphs and lists */
+  }
+  
+  .footer-section a {
+    color: #00bfff; /* Bright link color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .footer-section a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  .subscribe {
+    display: flex; /* Flexbox for input and button */
+    margin-top: 10px; /* Space above subscribe */
+  }
+  
+  .subscribe input {
+    padding: 8px;
+    border: none; /* Remove border */
+    border-radius: 4px; /* Round the input */
+    margin-right: 5px; /* Space between input and button */
+    flex: 1; /* Take remaining space */
+  }
+  
+  .subscribe button {
+    padding: 8px 15px; /* Padding for the button */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Round the button */
+  }
+  
+  .footer-bottom {
+    text-align: center; /* Center the text */
+    padding: 10px 0; /* Space above and below the text */
+    background-color: #002244; /* Darker background for the bottom text */
+    color: #00bfff; /* Bright text for contrast */
+  }
+  

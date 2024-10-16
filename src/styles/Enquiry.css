@@ -1,0 +1,82 @@
+.enquiry-container {
+    background-color: #f9f9f9; /* Light background for contrast */
+    color: #333; /* Dark text for readability */
+    padding: 40px 20px;
+    max-width: 800px; /* Limit max width */
+    margin: 0 auto; /* Center the container */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .enquiry-title {
+    text-align: center; /* Center title */
+    margin-bottom: 20px; /* Space below title */
+    font-size: 2.5rem; /* Font size for title */
+  }
+  
+  .enquiry-description {
+    text-align: center; /* Center description */
+    margin-bottom: 40px; /* Space below description */
+    font-size: 1.2rem; /* Font size for description */
+  }
+  
+  .enquiry-form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+  }
+  
+  .form-group {
+    margin-bottom: 20px; /* Space below each form group */
+  }
+  
+  .form-group label {
+    font-weight: bold; /* Bold label text */
+    margin-bottom: 5px; /* Space below label */
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside input fields */
+    border: 1px solid #ddd; /* Border for input fields */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1rem; /* Font size for inputs */
+  }
+  
+  .form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+  }
+  
+  .btn-info {
+    background-color: #00bfff; /* Bright button color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 4px; /* Rounded corners */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  
+  .btn-info:hover {
+    background-color: #008cba; /* Darker color on hover */
+  }
+  
+  .map-container {
+    margin-top: 40px; /* Space above the map */
+    text-align: center; /* Center map title */
+  }
+  
+  .map-title {
+    font-size: 1.5rem; /* Font size for map title */
+    margin-bottom: 10px; /* Space below map title */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .map-container iframe {
+      width: 100%; /* Full width on smaller screens */
+      height: 300px; /* Adjust height */
+    }
+  }
+  

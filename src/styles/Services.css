@@ -1,0 +1,55 @@
+.services-container {
+    background-color: #f9f9f9; /* Light background for contrast */
+    color: #333; /* Dark text for readability */
+    padding: 40px 20px;
+    max-width: 1200px; /* Limit max width */
+    margin: 0 auto; /* Center the container */
+  }
+  
+  .services-title {
+    text-align: center; /* Center title */
+    margin-bottom: 20px; /* Space below title */
+    font-size: 2.5rem; /* Font size for title */
+  }
+  
+  .services-description {
+    text-align: center; /* Center description */
+    margin-bottom: 40px; /* Space below description */
+    font-size: 1.2rem; /* Font size for description */
+  }
+  
+  .service-item {
+    margin-bottom: 30px; /* Space below each service item */
+    padding: 20px; /* Padding inside service item */
+    border: 1px solid #ddd; /* Border around each service item */
+    border-radius: 4px; /* Rounded corners */
+    transition: transform 0.3s; /* Animation for hover effect */
+  }
+  
+  .service-item:hover {
+    transform: translateY(-5px); /* Raise the card on hover */
+  }
+  
+  .service-item h3 {
+    font-size: 1.75rem; /* Font size for service headings */
+    margin-bottom: 10px; /* Space below service headings */
+  }
+  
+  .view-all {
+    text-align: center; /* Center the button */
+    margin-top: 30px; /* Space above button */
+  }
+  
+  .btn-info {
+    background-color: #00bfff; /* Bright button color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 4px; /* Rounded corners */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .btn-info:hover {
+    background-color: #008cba; /* Darker color on hover */
+  }
+  
