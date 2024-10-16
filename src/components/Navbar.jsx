@@ -11,8 +11,15 @@ function Navbar() {
   return (
     <div className="App bg-primary vh-100 text-white">
         <Home isOpen={isOpen} toggleNavbar={toggleNavbar} />
+        <button 
+          className="navbar-toggler text-white border-0" 
+          type="button" 
+          onClick={toggleNavbar}
+        >
+          {isOpen ? '✖' : '☰'}
+        </button>
       {isOpen && (
-        <nav className="navbar-menu">
+        <nav className={`navbar-menu ${isOpen ? 'active': ''}`}>
           <ul className="list-unstyled text-center">
             <li><a href="#home" className="text-white text-decoration-none">HOME</a></li>
             <li><a href="#about" className="text-white text-decoration-none">ABOUT</a></li>

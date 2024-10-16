@@ -6,13 +6,6 @@ function Home({ isOpen, toggleNavbar}) {
     <div>
         <header className="d-flex justify-content-between align-items-center p-3">
         <h1 className="fs-5 fw-bold text-white">KINGDOMS FINANCIAL</h1>
-        <button 
-          className="navbar-toggler text-white border-0" 
-          type="button" 
-          onClick={toggleNavbar}
-        >
-          {isOpen ? '✖' : '☰'}
-        </button>
       </header>
       <main className="text-center mt-5 px-3">
         <h2 className="display-4 fw-bold">COMPLETE INSURANCE COVERAGE</h2>

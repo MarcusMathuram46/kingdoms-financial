@@ -1,12 +1,18 @@
+/* Navbar Toggle Button */
 .navbar-toggler {
   font-size: 1.5rem;
   background: none;
   border: none;
   color: white;
   cursor: pointer;
+  position: absolute;  /* Position it to the top right */
+  top: 15px;           /* Adjust this value to fine-tune the vertical position */
+  right: 15px;         /* Adjust this value to fine-tune the horizontal position */
   transition: transform 0.2s ease-in-out;
+  z-index: 1100;       /* Ensure it stays above other content */
 }
 
+/* Navbar Menu */
 .navbar-menu {
   background-color: #003366;
   padding: 1rem;
@@ -17,54 +23,55 @@
   z-index: 1000;
   transition: transform 0.3s ease;
   transform: translateY(-100%);
+  display: none;  /* Hidden by default */
 }
 
-.navbar-menu ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.navbar-menu.active {
+  display: block;  /* Show when active */
+  transform: translateY(0);  /* Animate slide-down */
 }
 
-.navbar-menu ul li {
-  padding: 10px 0;
-}
-
-.navbar-menu a {
-  color: white;
-  font-size: 1.2rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.navbar-menu a:hover {
-  color: #00ccff;
-}
-html {
-  scroll-behaviour: smooth;
-}
-.navbar-toggler.active {
-  transform: translateY(0);
-}
-
+/* Responsive Styling */
 @media (max-width: 768px) {
+  .navbar-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    z-index: 1000;
+  }
+
+  .navbar-menu.active {
+    display: block;
+    transform: translateY(0);
+  }
+
   .navbar-menu ul {
     flex-direction: column;
+    align-items: center;
   }
 }
+
 @media (min-width: 768px) {
-  .navbar-menu ul {
-    flex-direction: row;
-    justify-content: center;
+  .navbar-toggler {
+    display: none;  /* Hide toggle on larger screens */
   }
-  .navbar-menu ul li {
-    padding: 0 20px;
-  }
+
   .navbar-menu {
     position: relative;
+    display: flex;
     top: 0;
     transform: none;
     background-color: transparent;
   }
 
+  .navbar-menu ul {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .navbar-menu ul li {
+    padding: 0 20px;
+  }
 }
