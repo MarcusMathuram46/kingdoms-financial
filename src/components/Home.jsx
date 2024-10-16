@@ -15,7 +15,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="home-container">
+    <div id='home' className="home-container">
       <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">

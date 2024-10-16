@@ -3,7 +3,7 @@ import '../styles/About.css'; // Make sure to create this CSS file for styling
 
 function About() {
   return (
-    <div className="about-container">
+    <div id='about' className="about-container">
       <h2 className="about-title">About Us</h2>
       <p className="about-description">
         We simplify financial planning with transparent, expert guidance and personalized solutions to help you achieve your goals and secure your future.

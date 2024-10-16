@@ -23,7 +23,7 @@ function Enquiry() {
   };
 
   return (
-    <div className="enquiry-container">
+    <div id='enquiry' className="enquiry-container">
       <h2 className="enquiry-title">Get in Touch</h2>
       <p className="enquiry-description">
         If You Have Any Query, Please Contact Us. We’d love to hear from you! Please fill out the form below, and our team will get back to you as soon as possible.
