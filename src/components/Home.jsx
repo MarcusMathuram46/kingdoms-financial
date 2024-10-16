@@ -1,53 +1,60 @@
-import React from 'react';
-import '../styles/Home.css'; // Make sure to have your CSS file imported
+import React, { useEffect } from 'react';
+import '../styles/Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Home() {
+  useEffect(() => {
+    const carouselElement = document.querySelector('#carouselExample');
+    if (carouselElement) {
+      // Initialize the carousel with Bootstrap
+      new window.bootstrap.Carousel(carouselElement, {
+        interval: 5000, // 5 seconds interval
+        ride: 'carousel', // Automatically cycle
+      });
+    }
+  }, []);
+
   return (
     <div className="home-container">
-      <div id="carouselExample" className="carousel slide" data-ride="carousel">
+      <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
-          {/* First slide */}
           <div className="carousel-item active">
             <div className="carousel-content d-flex flex-column justify-content-center align-items-start">
               <h2 className="display-4 fw-bold">Comprehensive Investment Solutions</h2>
               <p className="lead">
-              Explore diverse investment opportunities with our expert guidance. From stocks and mutual funds to government bonds, we offer tailored strategies to grow your wealth and secure your financial future.
+                Explore diverse investment opportunities with our expert guidance.
               </p>
               <button className="btn btn-info btn-lg text-white">Read More</button>
             </div>
           </div>
 
-          {/* Second slide */}
           <div className="carousel-item">
             <div className="carousel-content d-flex flex-column justify-content-center align-items-start">
-              <h2 className="display-4 fw-bold"> Flexible Financing Options
-              </h2>
+              <h2 className="display-4 fw-bold">Flexible Financing Options</h2>
               <p className="lead">
-              Access a range of loan options designed to fit your personal and business needs. Whether you're looking for a home loan, personal loan, or business financing, we provide flexible terms to help you achieve your goals.
+                Access a range of loan options designed to fit your personal and business needs.
               </p>
               <button className="btn btn-info btn-lg text-white">Read More</button>
             </div>
           </div>
 
-          {/* Third slide */}
           <div className="carousel-item">
             <div className="carousel-content d-flex flex-column justify-content-center align-items-start">
               <h2 className="display-4 fw-bold">Complete Insurance Coverage</h2>
               <p className="lead">
-              Protect what matters most with our comprehensive insurance solutions. From health and life insurance to property and auto coverage, we offer plans to safeguard your assets and provide peace of mind.
+                Protect what matters most with our comprehensive insurance solutions.
               </p>
-              <button className="btn btn-info btn-lg text-white">Contact Us</button>
+              <button className="btn btn-info btn-lg text-white">Read More</button>
             </div>
           </div>
         </div>
 
         {/* Carousel controls */}
-        <a className="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+        <a className="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="sr-only">Previous</span>
         </a>
-        <a className="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+        <a className="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
           <span className="carousel-control-next-icon" aria-hidden="true"></span>
           <span className="sr-only">Next</span>
         </a>
