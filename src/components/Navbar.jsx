@@ -10,7 +10,6 @@ function Navbar() {
   };
   return (
     <div className="App bg-primary vh-100 text-white">
-        <Home isOpen={isOpen} toggleNavbar={toggleNavbar} />
         <button 
           className="navbar-toggler text-white border-0" 
           type="button" 

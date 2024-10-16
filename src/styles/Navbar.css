@@ -5,24 +5,22 @@
   border: none;
   color: white;
   cursor: pointer;
-  position: absolute;  /* Position it to the top right */
-  top: 15px;           /* Adjust this value to fine-tune the vertical position */
-  right: 15px;         /* Adjust this value to fine-tune the horizontal position */
+  position: absolute;
+  top: 15px;
+  right: 15px;
   transition: transform 0.2s ease-in-out;
-  z-index: 1100;       /* Ensure it stays above other content */
+  z-index: 1100;
 }
 
 /* Navbar Menu */
 .navbar-menu {
   background-color: #003366;
   padding: 1rem;
-  position: absolute;
-  top: 60px;
+  position: relative; /* Changed from absolute to relative */
+  top: 0;             /* Remove vertical offset */
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: transform 0.3s ease;
-  transform: translateY(-100%);
   display: none;  /* Hidden by default */
 }
 
@@ -34,17 +32,14 @@
 /* Responsive Styling */
 @media (max-width: 768px) {
   .navbar-menu {
-    position: absolute;
-    top: 60px;
+    top: 60px; /* This can be adjusted as needed */
     left: 0;
     right: 0;
-    transform: translateY(-100%);
     z-index: 1000;
   }
 
   .navbar-menu.active {
     display: block;
-    transform: translateY(0);
   }
 
   .navbar-menu ul {
@@ -59,10 +54,9 @@
   }
 
   .navbar-menu {
-    position: relative;
     display: flex;
+    position: relative;
     top: 0;
-    transform: none;
     background-color: transparent;
   }
 
@@ -74,4 +68,16 @@
   .navbar-menu ul li {
     padding: 0 20px;
   }
+}
+
+/* .App Style */
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #003366;
 }
