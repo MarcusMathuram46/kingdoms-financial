@@ -1,3 +1,19 @@
+/* Navbar Container */
+.navbar-container {
+  background-color: #003366;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 /* Navbar Toggle Button */
 .navbar-toggler {
   font-size: 1.5rem;
@@ -5,37 +21,53 @@
   border: none;
   color: white;
   cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  transition: transform 0.2s ease-in-out;
+  display: none; /* Hidden by default on larger screens */
   z-index: 1100;
 }
 
-/* Navbar Menu */
 .navbar-menu {
-  background-color: #003366;
-  padding: 1rem;
-  position: relative; /* Changed from absolute to relative */
-  top: 0;             /* Remove vertical offset */
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: none;  /* Hidden by default */
+  display: flex;
+  justify-content: center;
 }
 
-.navbar-menu.active {
-  display: block;  /* Show when active */
-  transform: translateY(0);  /* Animate slide-down */
+.navbar-menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Responsive Styling */
+.navbar-menu ul li {
+  margin: 0 15px;
+}
+
+.navbar-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar-menu ul li a:hover {
+  color: #00bfff; /* Light blue hover effect */
+}
+
+/* Responsive Styling for Mobile */
 @media (max-width: 768px) {
+  .navbar-toggler {
+    display: block;
+  }
+
   .navbar-menu {
-    top: 60px; /* This can be adjusted as needed */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
     left: 0;
     right: 0;
-    z-index: 1000;
+    background-color: #003366;
+    display: none;
+    padding: 20px;
   }
 
   .navbar-menu.active {
@@ -46,38 +78,8 @@
     flex-direction: column;
     align-items: center;
   }
-}
-
-@media (min-width: 768px) {
-  .navbar-toggler {
-    display: none;  /* Hide toggle on larger screens */
-  }
-
-  .navbar-menu {
-    display: flex;
-    position: relative;
-    top: 0;
-    background-color: transparent;
-  }
-
-  .navbar-menu ul {
-    flex-direction: row;
-    justify-content: center;
-  }
 
   .navbar-menu ul li {
-    padding: 0 20px;
+    margin: 10px 0;
   }
-}
-
-/* .App Style */
-.App {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  background-color: #003366;
 }

@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Navbar.css';
-import Home from './Home'
+
 function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
-  
+  const [isOpen, setIsOpen] = useState(false);
+
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
+
   return (
-    <div className="App bg-primary vh-100 text-white">
-        <button 
-          className="navbar-toggler text-white border-0" 
-          type="button" 
-          onClick={toggleNavbar}
-        >
-          {isOpen ? '✖' : '☰'}
-        </button>
-      {isOpen && (
-        <nav className={`navbar-menu ${isOpen ? 'active': ''}`}>
-          <ul className="list-unstyled text-center">
-            <li><a href="#home" className="text-white text-decoration-none">HOME</a></li>
-            <li><a href="#about" className="text-white text-decoration-none">ABOUT</a></li>
-            <li><a href="#services" className="text-white text-decoration-none">SERVICES</a></li>
-            <li><a href="#why-us" className="text-white text-decoration-none">WHY US</a></li>
-            <li><a href="#enquiry" className="text-white text-decoration-none">ENQUIRY</a></li>
-            <li><a href="#login" className="text-white text-decoration-none">LOGIN</a></li>
-          </ul>
-        </nav>
-      )}        
-    </div>
-  )
+    <header className="navbar-container">
+      <div className="navbar-brand">KINGDOMS FINANCIAL</div>
+      <button 
+        className="navbar-toggler" 
+        type="button" 
+        onClick={toggleNavbar}
+      >
+        {isOpen ? '✖' : '☰'}
+      </button>
+      <nav className={`navbar-menu ${isOpen ? 'active' : ''}`}>
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#services">SERVICES</a></li>
+          <li><a href="#why-us">WHY US</a></li>
+          <li><a href="#enquiry">ENQUIRY</a></li>
+          <li><a href="#login">LOGIN</a></li>
+        </ul>
+      </nav>
+    </header>
+  );
 }
 
-export default Navbar
+export default Navbar;

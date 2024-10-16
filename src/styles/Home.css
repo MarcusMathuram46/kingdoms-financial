@@ -1,0 +1,52 @@
+.home-container {
+    background-color: #003366; /* Same background as your App */
+    color: white; /* Text color for better visibility */
+    padding: 20px; /* Add some padding */
+    text-align: center; /* Center align text */
+  }
+  
+  .carousel-inner {
+    height: 60vh; /* Adjust based on design */
+  }
+  
+  .carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensure the items take the full height of the carousel */
+  }
+  
+  .carousel-content {
+    max-width: 800px; /* Limit the width for larger screens */
+    margin: auto; /* Center the content */
+  }
+  
+  .display-4 {
+    font-size: 2.5rem; /* Adjust font size */
+    margin-bottom: 20px; /* Space between heading and paragraph */
+  }
+  
+  .lead {
+    font-size: 1.25rem; /* Adjust font size for paragraph */
+    margin-bottom: 30px; /* Space between paragraph and button */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .display-4 {
+      font-size: 2rem; /* Slightly smaller on mobile */
+    }
+  
+    .lead {
+      font-size: 1rem; /* Smaller text for mobile */
+    }
+  
+    .btn-lg {
+      width: 100%; /* Full width button on mobile */
+    }
+  
+    .carousel-inner {
+      height: auto; /* Auto height for smaller screens */
+    }
+  }
+  
