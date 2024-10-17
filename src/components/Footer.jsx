@@ -1,9 +1,18 @@
-import React from 'react';
+import React from 'react'; 
 import '../styles/Footer.css'; // Custom styles
+import admin from '../images/ajith.jpg'
 
 function Footer() {
   return (
     <footer className="footer">
+      {/* Admin section moved to the top */}
+      <div className="footer-section admin-section">
+        <h3>OUR Admin</h3>
+        <img src={admin} alt="Mr.J.P.Ajith Samuel" className="admin-photo" />
+        <p>Mr.J.P.Ajith Samuel (Admin)</p>
+        <p>Business Man, Madurai.</p>
+      </div>
+
       <div className="footer-container">
         <div className="footer-section">
           <h3>Address</h3>
@@ -30,6 +39,7 @@ function Footer() {
           </div>
         </div>
       </div>
+
       <div className="footer-bottom">
         <p>All Rights Reserved By Kingdoms Financial.</p>
       </div>

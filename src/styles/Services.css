@@ -1,55 +1,126 @@
 .services-container {
-    background-color: #f9f9f9; /* Light background for contrast */
-    color: #333; /* Dark text for readability */
-    padding: 40px 20px;
-    max-width: 1200px; /* Limit max width */
-    margin: 0 auto; /* Center the container */
-  }
-  
+  background-color: #f9f9f9; /* Light background for contrast */
+  color: #333; /* Dark text for readability */
+  padding: 40px 20px;
+  max-width: 1200px; /* Limit max width */
+  margin: 0 auto; /* Center the container */
+}
+
+.services-title {
+  text-align: center; /* Center title */
+  margin-bottom: 20px; /* Space below title */
+  font-size: 2.5rem; /* Font size for title */
+}
+
+.services-description {
+  text-align: center; /* Center description */
+  margin-bottom: 40px; /* Space below description */
+  font-size: 1.2rem; /* Font size for description */
+}
+
+.service-item {
+  margin-bottom: 30px; /* Space below each service item */
+  padding: 20px; /* Padding inside service item */
+  background-color: lightgrey; /* Background color for differentiation */
+  border-radius: 4px; /* Rounded corners */
+  transition: transform 0.3s; /* Animation for hover effect */
+  text-align: center; /* Center align text */
+}
+
+.service-item:hover {
+  transform: translateY(-5px); /* Raise the card on hover */
+}
+
+.service-image {
+  width: 15%; /* Set image size to 15% */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 15px; /* Space below image */
+}
+
+.service-item h3 {
+  font-size: 1.75rem; /* Font size for service headings */
+  margin-bottom: 10px; /* Space below service headings */
+}
+
+.view-all {
+  text-align: center; /* Center the button */
+  margin-top: 30px; /* Space above button */
+}
+
+.btn-info {
+  background-color: #03ffb3; /* Bright button color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Button padding */
+  border-radius: 4px; /* Rounded corners */
+  color: white; /* White text */
+  text-decoration: none; /* Remove underline */
+}
+
+.btn-info:hover {
+  background-color: #008cba; /* Darker color on hover */
+  color: black; /* Black text color on hover */
+}
+
+/* Styles for title colors */
+.our-text {
+  color: black; /* "Our" in black */
+}
+
+.services-light-blue {
+  color: rgb(0, 225, 255); /* "Services" in light blue */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
   .services-title {
-    text-align: center; /* Center title */
-    margin-bottom: 20px; /* Space below title */
-    font-size: 2.5rem; /* Font size for title */
+    font-size: 2rem; /* Reduce title font size */
   }
-  
+
   .services-description {
-    text-align: center; /* Center description */
-    margin-bottom: 40px; /* Space below description */
-    font-size: 1.2rem; /* Font size for description */
+    font-size: 1rem; /* Reduce description font size */
   }
-  
+
   .service-item {
-    margin-bottom: 30px; /* Space below each service item */
-    padding: 20px; /* Padding inside service item */
-    border: 1px solid #ddd; /* Border around each service item */
-    border-radius: 4px; /* Rounded corners */
-    transition: transform 0.3s; /* Animation for hover effect */
+    padding: 15px; /* Reduce padding for smaller screens */
   }
-  
-  .service-item:hover {
-    transform: translateY(-5px); /* Raise the card on hover */
+
+  .service-image {
+    width: 30%; /* Increase image size for smaller screens */
   }
-  
+
   .service-item h3 {
-    font-size: 1.75rem; /* Font size for service headings */
-    margin-bottom: 10px; /* Space below service headings */
+    font-size: 1.5rem; /* Reduce service heading font size */
   }
-  
-  .view-all {
-    text-align: center; /* Center the button */
-    margin-top: 30px; /* Space above button */
-  }
-  
+
   .btn-info {
-    background-color: #00bfff; /* Bright button color */
-    border: none; /* Remove border */
-    padding: 10px 20px; /* Button padding */
-    border-radius: 4px; /* Rounded corners */
-    color: white; /* White text */
-    text-decoration: none; /* Remove underline */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+    font-size: 0.9rem; /* Reduce button font size */
   }
-  
-  .btn-info:hover {
-    background-color: #008cba; /* Darker color on hover */
+}
+
+@media (max-width: 480px) {
+  .services-title {
+    font-size: 1.75rem; /* Further reduce title font size */
   }
-  
+
+  .services-description {
+    font-size: 0.9rem; /* Further reduce description font size */
+  }
+
+  .service-image {
+    width: 50%; /* Increase image size for very small screens */
+  }
+
+  .service-item {
+    padding: 10px; /* Further reduce padding for very small screens */
+  }
+
+  .service-item h3 {
+    font-size: 1.25rem; /* Further reduce service heading font size */
+  }
+
+  .btn-info {
+    padding: 5px 10px; /* Further adjust padding for small button */
+    font-size: 0.8rem; /* Further reduce button font size */
+  }
+}
