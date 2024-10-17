@@ -53,6 +53,18 @@
 .navbar-menu ul li a:hover {
   color: #00bfff;
 }
+.login-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: inherit;
+  color: white;
+text-decoration: none;
+font-size: 1rem;
+font-weight: bold;
+transition: color 0.3s;
+}
 
 @media (max-width: 768px) {
   .navbar-toggler {
