@@ -27,17 +27,30 @@ function App() {
   };
 
   const renderComponent = () => {
+    if (activeSection === 'home') {
+      return (
+        <>
+          <Home />
+          <Services />
+          <About />
+          <Why />
+          {/* You can also add any other components you want to show here */}
+        </>
+      );
+    }
+
+    if (activeSection === 'enquiry') {
+      return <Enquiry />;
+    }
+
+    // For other sections
     switch (activeSection) {
-      case 'home':
-        return <Home />;
       case 'about':
         return <About />;
       case 'services':
         return <Services />;
       case 'why-us':
         return <Why />;
-      case 'enquiry':
-        return <Enquiry />;
       default:
         return <Home />;
     }
