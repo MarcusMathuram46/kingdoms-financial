@@ -26,14 +26,16 @@ function Navbar({ onLoginClick }) {
       </button>
       <nav className={`navbar-menu ${isOpen ? 'active' : ''}`}>
         <ul>
-          <li><a href="#home">HOME</a></li>
+          <li><a href="#home" className="home-link">HOME</a></li>
           <li><a href="#about">ABOUT</a></li>
           <li><a href="#services">SERVICES</a></li>
           <li><a href="#why-us">WHY US</a></li>
           <li><a href="#enquiry">ENQUIRY</a></li>
-          <li>
-            {/* Close navbar and trigger login modal */}
-            <button onClick={closeNavbar} className="login-button">LOGIN</button>
+          <li className="login-button">
+            {/* Keep icon but make button consistent with other links */}
+            <a href="#login" onClick={closeNavbar}>
+              <i className="fas fa-sign-in-alt"></i> LOGIN
+            </a>
           </li>
         </ul>
       </nav>

@@ -1,71 +1,71 @@
 .about-container {
-    background-color: #f4f4f4; /* Light background for contrast */
-    color: #333; /* Dark text for readability */
+    background-color: rgba(0, 0, 128, 0.9); /* Dark blue background overlay */
+    color: white; /* White text for readability */
     padding: 40px;
     text-align: center; /* Center align text */
     border-radius: 8px; /* Slight rounding for a softer look */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     margin: 20px; /* Space around the container */
+    position: relative; /* For absolute positioning of the background image */
+    overflow: hidden; /* Hide overflowing background image */
+}
+
+.about-container:before {
+    content: ''; /* Pseudo-element for background image */
+    background-image: url('../images/About.png'); /* Update with your background image path */
+    background-size: cover; /* Cover entire container */
+    background-position: center; /* Center the background image */
+    position: absolute; /* Positioning */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Behind other content */
+    animation: fadeIn 10s ease-in-out infinite; /* Animation for background image */
+    opacity: 0.5; /* Adjust opacity for better text readability */
 }
 
 .about-title {
     font-size: 2.5rem; /* Large title font */
     margin-bottom: 20px; /* Space below the title */
+    position: relative; /* Position relative to the container */
+    z-index: 1; /* Above background image */
 }
 
 .about-description {
     font-size: 1.25rem; /* Description font size */
     line-height: 1.6; /* Improve readability */
-    max-width: 800px; /* Limit width for readability */
     margin: 0 auto; /* Center the description */
+    position: relative; /* Position relative to the container */
+    z-index: 1; /* Above background image */
+}
+
+/* Animation for the background */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .about-title {
         font-size: 2rem; /* Smaller title on mobile */
-    }.about-container {
-        background-color: #f4f4f4; /* Light background for contrast */
-        color: #333; /* Dark text for readability */
-        padding: 40px;
-        text-align: center; /* Center align text */
-        border-radius: 8px; /* Slight rounding for a softer look */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        margin: 20px; /* Space around the container */
     }
-    
-    .about-title {
-        font-size: 2.5rem; /* Large title font */
-        margin-bottom: 20px; /* Space below the title */
-    }
-    
+
     .about-description {
-        font-size: 1.25rem; /* Description font size */
-        line-height: 1.6; /* Improve readability */
-        max-width: 800px; /* Limit width for readability */
-        margin: 0 auto; /* Center the description */
-        margin-bottom: 20px; /* Space below description */
+        font-size: 1rem; /* Smaller description on mobile */
     }
-    
+
     .read-more-button {
         font-size: 1rem; /* Button font size */
         padding: 10px 20px; /* Padding for button */
         border-radius: 5px; /* Round the button */
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .about-title {
-            font-size: 2rem; /* Smaller title on mobile */
-        }
-    
-        .about-description {
-            font-size: 1rem; /* Smaller description on mobile */
-        }
-    }
-    
-
-    .about-description {
-        font-size: 1rem; /* Smaller description on mobile */
     }
 }

@@ -1,71 +1,127 @@
+/* Main horizontal layout */
 .home-container {
-    background-color: #003366;
-    color: white;
-    padding: 20px;
-    text-align: left;
-}
-
-.carousel-inner {
-    height: 60vh;
-    width: 100%;
-}
-
-.carousel-item {
     display: flex;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    position: relative;
+}
+
+/* Left side: Carousel section */
+.carousel-container {
+    flex: 1; /* Takes up half of the screen */
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: left;
-    height: 100%;
-    opacity: 0; /* Initially hide items */
-    transition: opacity 0.5s ease-in-out; /* Smooth transition */
+    align-items: flex-start; /* Align text to the left */
+    padding: 20px; /* Padding for content */
+    color: white; /* White text */
+    z-index: 2; /* Keep above background image */
+}
+
+/* Carousel item */
+.carousel-item {
+    display: none; /* Hide all slides initially */
 }
 
 .carousel-item.active {
-    opacity: 1; /* Show the active item */
+    display: block; /* Show only the active slide */
 }
 
 .carousel-content {
-    max-width: 800px;
-    padding: 20px;
+    max-width: 500px; /* Max width for readable text */
+    text-align: left;
 }
 
-.display-4 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.lead {
-    font-size: 1.25rem;
-    margin-bottom: 30px;
-}
-
-.btn-info {
-    background-color: #00bfff;
+/* "Read More" button */
+.carousel-button {
+    background-color: #17a2b8; /* Bootstrap bg-info color */
+    color: white;
+    padding: 10px 20px;
     border: none;
+    margin-top: 15px;
+    font-size: 1rem;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    padding: 20px;
+.carousel-button:hover {
+    background-color: #138496;
+}
+
+/* Right side: Background image */
+.background-image {
+    flex: 1; /* Takes the remaining space on the right */
+    background-image: url('../images/Home.png');
+    background-size: contain; /* Smaller image */
+    background-repeat: no-repeat; /* No repeat */
+    background-position: center; /* Centered image */
+    animation: verticalSlide 2s infinite alternate; /* Animate up and down faster */
+    transform: translateY(50px); /* Start position slightly down */
+}
+
+@keyframes verticalSlide {
+    0% { transform: translateY(50px); } /* Start position */
+    100% { transform: translateY(-30px); } /* End position */
+}
+
+/* Carousel indicators (circle buttons) at bottom center */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px; /* Positioned at the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.carousel-indicators button {
+    width: 30px; /* Larger width */
+    height: 30px; /* Larger height */
+    border-radius: 50%; /* Circular shape */
+    background-color: #fff; /* White color */
+    border: none;
+    margin: 0 5px; /* Margin for spacing */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-indicators button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.carousel-indicators button.active {
+    background-color: #00bfff; /* Active button color */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .carousel-inner {
-        height: auto;
-    }
-
     .carousel-content {
-        max-width: 100%;
+        max-width: 100%; /* Full width on smaller screens */
     }
 
     .display-4 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Adjust font size */
     }
 
     .lead {
-        font-size: 1rem;
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .carousel-button {
+        font-size: 0.9rem; /* Smaller button text */
+    }
+
+    /* Adjust carousel indicators for smaller screens */
+    .carousel-indicators {
+        bottom: 15px; /* Adjusted for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 1.5rem; /* Adjust heading for extra small screens */
+    }
+
+    .lead {
+        font-size: 0.9rem; /* Adjust paragraph for extra small screens */
     }
 }
