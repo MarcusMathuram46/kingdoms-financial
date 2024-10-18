@@ -8,7 +8,7 @@ import happyCustomersImage from '../images/Why-4.jpg';
 function Why() {
   return (
     <div id='why-us' className="why-container">
-      <h2 className="why-title">Why Choose Us</h2>
+      <h2 className="why-title">Why Choose <span className='why-light-blue'>Us</span></h2>
 
       <div className="why-section">
         <div className="circle">

@@ -1,126 +1,140 @@
+.services-wrapper {
+  background-color: white; /* Background color for the entire section */
+  padding: 40px 0; /* Space around the services section */
+}
+
 .services-container {
-  background-color: #f9f9f9; /* Light background for contrast */
-  color: #333; /* Dark text for readability */
+  background-color: white; /* White background for the services container */
+  color: black;
   padding: 40px 20px;
-  max-width: 1200px; /* Limit max width */
-  margin: 0 auto; /* Center the container */
+  max-width: 1200px; 
+  margin: 0 auto; 
+  border-radius: 4px; /* Optional: Add rounded corners */
 }
 
 .services-title {
-  text-align: center; /* Center title */
-  margin-bottom: 20px; /* Space below title */
-  font-size: 2.5rem; /* Font size for title */
+  text-align: center; 
+  margin-bottom: 20px; 
+  font-size: 2.5rem; 
 }
 
 .services-description {
-  text-align: center; /* Center description */
-  margin-bottom: 40px; /* Space below description */
-  font-size: 1.2rem; /* Font size for description */
+  text-align: center; 
+  margin-bottom: 40px; 
+  font-size: 1.2rem; 
+}
+
+/* Use Flexbox for horizontal layout */
+.services-grid {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between; /* Space items evenly */
 }
 
 .service-item {
-  margin-bottom: 30px; /* Space below each service item */
-  padding: 20px; /* Padding inside service item */
-  background-color: lightgrey; /* Background color for differentiation */
-  border-radius: 4px; /* Rounded corners */
-  transition: transform 0.3s; /* Animation for hover effect */
-  text-align: center; /* Center align text */
+  flex: 1 1 calc(33% - 20px); /* Three items per row, adjust as needed */
+  margin: 10px; 
+  padding: 20px; 
+  background-color: rgb(240, 239, 239); 
+  border-radius: 4px; 
+  transition: transform 0.3s; 
+  text-align: center; 
 }
 
 .service-item:hover {
-  transform: translateY(-5px); /* Raise the card on hover */
+  transform: translateY(-5px); 
 }
 
 .service-image {
   width: 15%; /* Set image size to 15% */
-  height: auto; /* Maintain aspect ratio */
-  margin-bottom: 15px; /* Space below image */
+  height: auto; 
+  margin-bottom: 15px; 
 }
 
 .service-item h3 {
-  font-size: 1.75rem; /* Font size for service headings */
-  margin-bottom: 10px; /* Space below service headings */
+  font-size: 1.75rem; 
+  margin-bottom: 10px; 
 }
 
 .view-all {
-  text-align: center; /* Center the button */
-  margin-top: 30px; /* Space above button */
+  text-align: center; 
+  margin-top: 30px; 
 }
 
 .btn-info {
-  background-color: #03ffb3; /* Bright button color */
-  border: none; /* Remove border */
-  padding: 10px 20px; /* Button padding */
-  border-radius: 4px; /* Rounded corners */
-  color: white; /* White text */
-  text-decoration: none; /* Remove underline */
+  background-color: #03ffb3; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 4px; 
+  color: white; 
+  text-decoration: none; 
 }
 
 .btn-info:hover {
-  background-color: #008cba; /* Darker color on hover */
-  color: black; /* Black text color on hover */
+  background-color: #008cba; 
+  color: black; 
 }
 
 /* Styles for title colors */
 .our-text {
-  color: black; /* "Our" in black */
+  color: black; 
 }
 
 .services-light-blue {
-  color: rgb(0, 225, 255); /* "Services" in light blue */
+  color: rgb(0, 225, 255); 
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   .services-title {
-    font-size: 2rem; /* Reduce title font size */
+    font-size: 2rem; 
   }
 
   .services-description {
-    font-size: 1rem; /* Reduce description font size */
+    font-size: 1rem; 
   }
 
   .service-item {
-    padding: 15px; /* Reduce padding for smaller screens */
+    flex: 1 1 calc(50% - 20px); /* Two items per row for smaller screens */
   }
 
   .service-image {
-    width: 30%; /* Increase image size for smaller screens */
+    width: 30%; /* Adjust image size */
   }
 
   .service-item h3 {
-    font-size: 1.5rem; /* Reduce service heading font size */
+    font-size: 1.5rem; 
   }
 
   .btn-info {
-    padding: 8px 16px; /* Adjust padding for smaller screens */
-    font-size: 0.9rem; /* Reduce button font size */
+    padding: 8px 16px; 
+    font-size: 0.9rem; 
   }
 }
 
 @media (max-width: 480px) {
   .services-title {
-    font-size: 1.75rem; /* Further reduce title font size */
+    font-size: 1.75rem; 
   }
 
   .services-description {
-    font-size: 0.9rem; /* Further reduce description font size */
+    font-size: 0.9rem; 
+  }
+
+  .service-item {
+    flex: 1 1 100%; /* One item per row for very small screens */
   }
 
   .service-image {
     width: 50%; /* Increase image size for very small screens */
   }
 
-  .service-item {
-    padding: 10px; /* Further reduce padding for very small screens */
-  }
-
   .service-item h3 {
-    font-size: 1.25rem; /* Further reduce service heading font size */
+    font-size: 1.25rem; 
   }
 
   .btn-info {
-    padding: 5px 10px; /* Further adjust padding for small button */
-    font-size: 0.8rem; /* Further reduce button font size */
+    padding: 5px 10px; 
+    font-size: 0.8rem; 
   }
 }

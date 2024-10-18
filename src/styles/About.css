@@ -1,71 +1,86 @@
-.about-container {
-    background-color: rgba(0, 0, 128, 0.9); /* Dark blue background overlay */
+.about-wrapper {
+    position: relative; /* For positioning background image */
+    background-color: #003366; /* Dark blue background */
     color: white; /* White text for readability */
-    padding: 40px;
-    text-align: center; /* Center align text */
+    padding: 40px 0; /* Space around the section */
+    overflow: hidden; /* Hide overflowing elements */
+}
+
+.about-container {
+    max-width: 1200px; /* Limit max width */
+    margin: 0 auto; /* Center the container */
+    padding: 40px; /* Padding inside container */
     border-radius: 8px; /* Slight rounding for a softer look */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 20px; /* Space around the container */
-    position: relative; /* For absolute positioning of the background image */
-    overflow: hidden; /* Hide overflowing background image */
+    position: relative; /* For absolute positioning if needed */
+    text-align: center; /* Center align text */
+    z-index: 1; /* Ensure content is above background */
+}
+.about-light-blue{
+    color: rgb(0, 225, 255); 
 }
 
-.about-container:before {
-    content: ''; /* Pseudo-element for background image */
-    background-image: url('../images/About.png'); /* Update with your background image path */
-    background-size: cover; /* Cover entire container */
-    background-position: center; /* Center the background image */
-    position: absolute; /* Positioning */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0; /* Behind other content */
-    animation: fadeIn 10s ease-in-out infinite; /* Animation for background image */
-    opacity: 0.5; /* Adjust opacity for better text readability */
+.about-content {
+    display: flex; /* Horizontal layout */
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: center; /* Center items vertically */
+    margin-top: 20px; /* Space above the content */
 }
 
-.about-title {
-    font-size: 2.5rem; /* Large title font */
-    margin-bottom: 20px; /* Space below the title */
-    position: relative; /* Position relative to the container */
-    z-index: 1; /* Above background image */
+.about-image {
+    flex: 0 0 50%; /* Take up 50% of the space */
+    max-width: 50%; /* Maximum width to avoid overflow */
+    height: auto; /* Maintain aspect ratio */
 }
 
-.about-description {
-    font-size: 1.25rem; /* Description font size */
-    line-height: 1.6; /* Improve readability */
-    margin: 0 auto; /* Center the description */
-    position: relative; /* Position relative to the container */
-    z-index: 1; /* Above background image */
+.about-text {
+    flex: 1; /* Take the remaining space */
+    text-align: left; /* Align text to the left */
 }
 
-/* Animation for the background */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+.about-subtitle {
+    margin-top: 0; /* Remove margin above subtitle */
+}
+
+/* Adjust the button color */
+.read-more-button {
+    background-color: rgb(0, 225, 255); /* Light blue color */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for button */
+    border-radius: 5px; /* Round the button */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        text-align: center; /* Center text */
+    }
+
+    .about-image {
+        max-width: 80%; /* Increase image size on smaller screens */
+        margin-bottom: 20px; /* Space below image */
+    }
+
+    .about-text {
+        flex: none; /* Prevent taking full space */
+        width: 100%; /* Full width for text */
+    }
+}
+
+@media (max-width: 480px) {
     .about-title {
-        font-size: 2rem; /* Smaller title on mobile */
+        font-size: 1.75rem; /* Further reduce title font size */
     }
 
     .about-description {
-        font-size: 1rem; /* Smaller description on mobile */
+        font-size: 1rem; /* Further reduce description font size */
     }
 
     .read-more-button {
-        font-size: 1rem; /* Button font size */
-        padding: 10px 20px; /* Padding for button */
-        border-radius: 5px; /* Round the button */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+        font-size: 0.9rem; /* Reduce button font size */
     }
 }

@@ -1,109 +1,128 @@
 /* General enquiry container styling */
 .enquiry-container {
-    background-color: #ffffff; /* White background for the form section */
-    padding: 2rem;
-    margin-top: 1rem; /* Add space below the navbar */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds slight shadow for a modern look */
-  }
-  
-  /* Navbar styling (assuming navbar is in another file) */
-  .navbar {
-    background-color: #1D1D8F; /* Keep dark blue for the navbar */
-    color: white;
-  }
-  
-  /* Footer styling (assuming footer is in another file) */
-  .footer {
-    background-color: #1D1D8F; /* Keep dark blue for the footer */
-    color: white;
+  background-color: #ffffff; /* White background for the form section */
+  color: black; /* Black text for better contrast */
+  padding: 2rem;
+  margin-top: 1rem; /* Add space below the navbar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds slight shadow for a modern look */
+}
+
+/* Title styling */
+.enquiry-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #003366; /* Dark blue title for contrast */
+  margin-bottom: 1rem;
+  text-align: center; /* Center the title */
+}
+
+/* Description styling */
+.enquiry-description {
+  font-size: 1.2rem;
+  color: #333333; /* Darker text for better contrast */
+  margin-bottom: 2rem;
+  text-align: center; /* Center the description */
+}
+
+/* Enquiry content layout */
+.enquiry-content {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: flex-start; /* Align items to the start */
+  gap: 20px; /* Space between form and map */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Form container styling */
+.enquiry-form-container {
+  flex: 1; /* Take equal space */
+  max-width: 500px; /* Set a max-width for the form container */
+  min-width: 300px; /* Ensure it doesn't get too narrow */
+}
+
+/* Map container styling */
+.map-container {
+  flex: 1; /* Take equal space */
+  max-width: 500px; /* Set a max-width for the map container */
+  min-width: 300px; /* Ensure it doesn't get too narrow */
+}
+
+/* Form group styling */
+.enquiry-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Input and select styling */
+.enquiry-form .form-control {
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  background-color: #ffffff; /* White background for form fields */
+}
+
+/* Button styling */
+.btn-info {
+  background-color: #1D1D8F; /* Dark blue button */
+  border-color: #1D1D8F;
+  color: white; /* White text */
+  font-size: 1.2rem;
+}
+
+/* Button hover styling */
+.btn-info:hover {
+  background-color: #003366; /* Darker blue on hover */
+}
+
+/* Map title styling */
+.map-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #003366; /* Dark blue title for contrast */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .enquiry-container {
     padding: 1rem;
-    text-align: center;
   }
-  
-  /* Title styling */
+
   .enquiry-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #1D1D8F; /* Dark blue title for consistency */
-    margin-bottom: 1rem;
-  }
-  
-  /* Description styling */
-  .enquiry-description {
-    font-size: 1.2rem;
-    color: #333; /* Darker text for better contrast */
-    margin-bottom: 2rem;
-  }
-  
-  /* Form group styling */
-  .enquiry-form .form-group {
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Input and select styling */
-  .enquiry-form .form-control {
-    border-radius: 0.25rem;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ced4da;
-    background-color: #ffffff; /* White background for form fields */
-  }
-  
-  /* Button styling */
-  .btn-info {
-    background-color: #1D1D8F; /* Dark blue button */
-    border-color: #1D1D8F;
-    color: white;
-    font-size: 1.2rem;
-  }
-  
-  .btn-info:hover {
-    background-color: #343aeb; /* Lighter blue on hover */
-    border-color: #343aeb;
-  }
-  
-  /* Map container styling */
-  .map-container {
-    margin-top: 2rem;
-    text-align: center;
-  }
-  
-  .map-title {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #1D1D8F; /* Blue for consistency */
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .enquiry-container {
-      padding: 1rem;
-    }
-  
-    .enquiry-title {
-      font-size: 1.5rem;
-    }
-  
-    .enquiry-description {
-      font-size: 1rem;
-    }
-  
-    .map-container iframe {
-      height: 300px;
-    }
+
+  .enquiry-description {
+    font-size: 1rem;
   }
-  
-  @media (max-width: 576px) {
-    .enquiry-title {
-      font-size: 1.2rem;
-    }
-  
-    .enquiry-description {
-      font-size: 0.9rem;
-    }
-  
-    .map-container iframe {
-      height: 250px;
-    }
+
+  .enquiry-content {
+    flex-direction: column; /* Stack vertically on smaller screens */
+    align-items: center; /* Center align the items */
+    gap: 10px; /* Space between form and map */
   }
-  
+
+  .enquiry-form-container,
+  .map-container {
+    margin: 0; /* Remove margins for smaller screens */
+    width: 100%; /* Full width for form and map */
+    max-width: none; /* Remove max-width to fill the screen */
+  }
+
+  .map-container iframe {
+    height: 300px; /* Adjust iframe height */
+  }
+}
+
+@media (max-width: 576px) {
+  .enquiry-title {
+    font-size: 1.2rem;
+  }
+
+  .enquiry-description {
+    font-size: 0.9rem;
+  }
+
+  .map-container iframe {
+    height: 250px; /* Adjust iframe height */
+  }
+}

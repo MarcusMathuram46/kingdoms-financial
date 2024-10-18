@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Services.css"; 
-import mutualFundsImage from '../images/mutual-funds.png'; // Update with your actual image names
+import mutualFundsImage from '../images/mutual-funds.png';
 import fixedDepositsImage from '../images/fixed-deposits.png';
 import insuranceImage from '../images/insurance.png';
 import stocksLoansImage from '../images/stocks-loans.png';
@@ -9,79 +9,38 @@ import governmentBondsImage from '../images/government-bonds.png';
 
 function Services() {
   return (
-    <div id="services" className="services-container">
-      <h2 className="services-title">
-        <span className="our-text">Our </span>
-        <span className="services-light-blue">Services</span>
-      </h2>
+    <div id="services" className="services-wrapper">
+      <div className="services-container">
+        <h2 className="services-title">
+          <span className="our-text">Our </span>
+          <span className="services-light-blue">Services</span>
+        </h2>
 
-      <p className="services-description">
-        Empowering your financial future with expert guidance, innovative
-        solutions, and personalized service.
-      </p>
-
-      <div className="service-item">
-        <img src={mutualFundsImage} alt="Mutual Funds" className="service-image" />
-        <h3>Mutual Funds</h3>
-        <p>
-          Diversify your investments with our expertly managed mutual funds,
-          designed for growth and tailored to your financial goals.
+        <p className="services-description">
+          Empowering your financial future with expert guidance, innovative solutions, and personalized service.
         </p>
-        <a href="#mutual-funds" className="btn btn-info">Read More</a>
-      </div>
 
-      <div className="service-item">
-        <img src={fixedDepositsImage} alt="Fixed Deposits" className="service-image" />
-        <h3>Fixed Deposits</h3>
-        <p>
-          Enhance your savings with fixed deposits that offer guaranteed returns
-          and competitive interest rates for financial stability.
-        </p>
-        <a href="#fixed-deposits" className="btn btn-info">Read More</a>
-      </div>
+        <div className="services-grid">
+          {[
+            { image: mutualFundsImage, title: "Mutual Funds", description: "Diversify your investments with our expertly managed mutual funds, designed for growth and tailored to your financial goals." },
+            { image: fixedDepositsImage, title: "Fixed Deposits", description: "Enhance your savings with fixed deposits that offer guaranteed returns and competitive interest rates for financial stability." },
+            { image: insuranceImage, title: "All Types of Insurance", description: "Safeguard your assets and loved ones with a broad range of insurance options, including health, life, and property coverage." },
+            { image: stocksLoansImage, title: "Stocks and Loans", description: "Invest in stocks with expert guidance and meet your needs with our flexible loan options." },
+            { image: realEstateImage, title: "Real Estate", description: "Explore valuable real estate opportunities with expert guidance for buying, selling, or investing in property successfully." },
+            { image: governmentBondsImage, title: "Government Bonds", description: "Opt for government bonds for secure, stable returns and minimal risk, ensuring steady income with peace of mind." }
+          ].map((service, index) => (
+            <div className="service-item" key={index}>
+              <img src={service.image} alt={service.title} className="service-image" />
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <a href={`#${service.title.replace(/ /g, "-").toLowerCase()}`} className="btn btn-info">Read More</a>
+            </div>
+          ))}
+        </div>
 
-      <div className="service-item">
-        <img src={insuranceImage} alt="All Types of Insurance" className="service-image" />
-        <h3>All Types of Insurance</h3>
-        <p>
-          Safeguard your assets and loved ones with a broad range of insurance
-          options, including health, life, and property coverage.
-        </p>
-        <a href="#insurance" className="btn btn-info">Read More</a>
-      </div>
-
-      <div className="service-item">
-        <img src={stocksLoansImage} alt="Stocks and Loans" className="service-image" />
-        <h3>Stocks and Loans</h3>
-        <p>
-          Invest in stocks with expert guidance and meet your needs with our
-          flexible loan options.
-        </p>
-        <a href="#stocks-loans" className="btn btn-info">Read More</a>
-      </div>
-
-      <div className="service-item">
-        <img src={realEstateImage} alt="Real Estate" className="service-image" />
-        <h3>Real Estate</h3>
-        <p>
-          Explore valuable real estate opportunities with expert guidance for
-          buying, selling, or investing in property successfully.
-        </p>
-        <a href="#real-estate" className="btn btn-info">Read More</a>
-      </div>
-
-      <div className="service-item">
-        <img src={governmentBondsImage} alt="Government Bonds" className="service-image" />
-        <h3>Government Bonds</h3>
-        <p>
-          Opt for government bonds for secure, stable returns and minimal risk,
-          ensuring steady income with peace of mind.
-        </p>
-        <a href="#government-bonds" className="btn btn-info">Read More</a>
-      </div>
-
-      <div className="view-all">
-        <a href="#view-all" className="btn btn-info">View All</a>
+        <div className="view-all">
+          <a href="#view-all" className="btn btn-info">View All</a>
+        </div>
       </div>
     </div>
   );

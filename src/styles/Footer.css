@@ -1,68 +1,145 @@
 .footer {
-    background-color: #003366; /* Matching the theme */
-    color: white; /* White text for contrast */
-    padding: 20px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-  }
-  
+  background-color: #003366; /* Matching the theme */
+  color: white; /* White text for contrast */
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center; /* Center all text in the footer */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center; /* Center the footer sections */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  max-width: 1200px; /* Limit the maximum width */
+  margin: 0 auto; /* Center the container */
+  padding: 0 20px; /* Padding to prevent content from touching edges */
+}
+
+.footer-section {
+  flex: 1; /* Equal width for all sections */
+  padding: 10px;
+  min-width: 200px; /* Minimum width to avoid too narrow sections */
+  max-width: 300px; /* Maximum width to avoid too wide sections */
+  box-sizing: border-box; /* Include padding in width calculations */
+}
+
+.admin-section {
+  flex: 1 1 100%; /* Take full width on larger screens */
+  display: flex; /* Use flexbox for better centering */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  margin-bottom: 20px; /* Space below the admin section */
+  text-align: center; /* Center text for admin section */
+  padding: 0 20px; /* Add some horizontal padding */
+}
+
+.admin-photo {
+  width: 200px; /* Size for larger screens */
+  height: 200px; /* Size for larger screens */
+  border-radius: 50%; /* Circular image */
+  margin: 10px 0; /* Vertical spacing */
+  display: block; /* Ensure it's a block element */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+.footer-section h3 {
+  margin-bottom: 10px; /* Space below headers */
+}
+
+.footer-section p,
+.footer-section ul {
+  margin: 5px 0; /* Space for paragraphs and lists */
+}
+
+.footer-section a {
+  color: #00bfff; /* Bright link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.footer-section a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.subscribe {
+  display: flex; /* Flexbox for input and button */
+  margin-top: 10px; /* Space above subscribe */
+  justify-content: center; /* Center the subscribe elements */
+}
+
+.subscribe input {
+  padding: 8px;
+  border: none; /* Remove border */
+  border-radius: 4px; /* Round the input */
+  margin-right: 5px; /* Space between input and button */
+  flex: 1; /* Take remaining space */
+}
+
+.subscribe button {
+  padding: 8px 15px; /* Padding for the button */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Round the button */
+  background-color: #00bfff; /* Light blue button color */
+  color: white; /* Button text color */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.subscribe button:hover {
+  background-color: #0080b3; /* Darker blue on hover */
+}
+
+.footer-bottom {
+  text-align: center; /* Center the text */
+  padding: 10px 0; /* Space above and below the text */
+  background-color: white; /* White background for the bottom text */
+  color: black; /* Black text color */
+  position: relative; /* Ensure it sits below the footer */
+  width: 100%; /* Full width */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .footer-container {
-    display: flex;
-    justify-content: space-around; /* Space sections evenly */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    max-width: 1200px; /* Limit the maximum width */
-    margin: 0 auto; /* Center the container */
+    flex-direction: column; /* Stack sections vertically on smaller screens */
+    align-items: center; /* Center sections on smaller screens */
+    padding: 0 10px; /* Less padding on smaller screens */
   }
-  
+
   .footer-section {
-    flex: 1; /* Equal width for all sections */
-    padding: 10px;
-    min-width: 200px; /* Minimum width to avoid too narrow sections */
+    margin-bottom: 20px; /* Space below each section */
+    flex: 1; /* Ensure equal width on smaller screens */
+    max-width: 100%; /* Allow full width on smaller screens */
   }
-  
+
+  .admin-photo {
+    width: 120px; /* Adjust size for smaller screens */
+    height: 120px; /* Adjust size for smaller screens */
+  }
+
+  .subscribe {
+    flex-direction: column; /* Stack input and button vertically on smaller screens */
+    align-items: center; /* Center items in subscribe */
+  }
+
+  .subscribe input {
+    margin-bottom: 10px; /* Space below input on mobile */
+    max-width: 70%; /* Limit width of input */
+  }
+
+  .subscribe button {
+    max-width: 30%; /* Limit width of button */
+  }
+}
+
+@media (max-width: 480px) {
   .footer-section h3 {
-    margin-bottom: 10px; /* Space below headers */
+    font-size: 1.5rem; /* Smaller font size for headings */
   }
-  
+
   .footer-section p,
   .footer-section ul {
-    margin: 5px 0; /* Space for paragraphs and lists */
+    font-size: 0.9rem; /* Smaller font size for paragraphs and lists */
   }
-  
-  .footer-section a {
-    color: #00bfff; /* Bright link color */
-    text-decoration: none; /* Remove underline */
-  }
-  
-  .footer-section a:hover {
-    text-decoration: underline; /* Underline on hover */
-  }
-  
-  .subscribe {
-    display: flex; /* Flexbox for input and button */
-    margin-top: 10px; /* Space above subscribe */
-  }
-  
-  .subscribe input {
-    padding: 8px;
-    border: none; /* Remove border */
-    border-radius: 4px; /* Round the input */
-    margin-right: 5px; /* Space between input and button */
-    flex: 1; /* Take remaining space */
-  }
-  
-  .subscribe button {
-    padding: 8px 15px; /* Padding for the button */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Round the button */
-  }
-  
-  .footer-bottom {
-    text-align: center; /* Center the text */
-    padding: 10px 0; /* Space above and below the text */
-    background-color: #002244; /* Darker background for the bottom text */
-    color: #00bfff; /* Bright text for contrast */
-  }
-  
+}

@@ -33,7 +33,9 @@
   padding: 2px; /* Padding to create space around the image */
   border: 0.5px solid white; /* Very thin white outline around the circle */
 }
-
+.why-light-blue{
+  color: rgb(0, 225, 255); 
+}
 /* Increased size of the image */
 .circle-image {
   width: 90%; /* Image fills 85% of the circle */

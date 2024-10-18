@@ -35,36 +35,15 @@ main {
   font-size: 1.2rem;
 }
 
-/* Animation for smooth hover effect */
-@keyframes button-hover {
-  0% { background-color: #00bfff; }
-  100% { background-color: #003366; color: #00bfff; }
-}
-
-/* Button styling */
-.button {
-  background-color: #00bfff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.button:hover {
-  animation: button-hover 0.5s forwards;
-}
-
 /* Footer styles */
 .footer {
-  background-color: #1c126d;
+  background-color: #003366; /* Match footer background color */
   color: white;
   padding: 20px;
   text-align: center;
   width: 100%;
-  bottom: 0;
-  position: relative;
+  position: relative; /* Ensure it sits below the content */
+  margin-top: auto; /* Push footer to the bottom of the page */
 }
 
 /* Media queries for responsiveness */
