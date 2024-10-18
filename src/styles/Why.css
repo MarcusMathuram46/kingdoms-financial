@@ -1,23 +1,26 @@
+/* Why section container */
 .why-container {
-  background-color: #f9f9f9; /* Light background for contrast */
+  background-color: white; /* Set the background to white */
   color: #333; /* Dark text for readability */
-  padding: 40px 20px;
+  padding: 8rem; /* Increased padding around the container */
   max-width: 1200px; /* Limit max width */
   margin: 0 auto; /* Center the container */
 }
 
+/* Title styling */
 .why-title {
   text-align: center; /* Center title */
-  margin-bottom: 30px; /* Space below title */
+  margin-bottom: 40px; /* Increased space below title */
   font-size: 2.5rem; /* Font size for title */
 }
 
+/* Section styling */
 .why-section {
   text-align: center; /* Center align all content in the section */
-  margin-bottom: 30px; /* Space below each section */
+  margin-bottom: 40px; /* Increased space below each section */
 }
 
-/* Increased size of the circle */
+/* Circle styling */
 .circle {
   width: 30vw; /* Responsive width based on viewport width */
   height: 30vw; /* Maintain a square shape */
@@ -33,34 +36,41 @@
   padding: 2px; /* Padding to create space around the image */
   border: 0.5px solid white; /* Very thin white outline around the circle */
 }
-.why-light-blue{
+
+/* Light blue text styling */
+.why-light-blue {
   color: rgb(0, 225, 255); 
 }
-/* Increased size of the image */
+
+/* Circle image styling */
 .circle-image {
-  width: 90%; /* Image fills 85% of the circle */
+  width: 90%; /* Image fills 90% of the circle */
   height: auto; /* Maintain aspect ratio */
   border-radius: 50%; /* Ensure the image is also circular */
   margin: auto; /* Center the image */
 }
 
+/* Section heading styling */
 .why-section h3 {
   font-size: 1.75rem; /* Font size for section headings */
-  margin-bottom: 10px; /* Space below section headings */
+  margin-bottom: 15px; /* Increased space below section headings */
 }
 
+/* Read more button styling */
 .read-more {
   text-align: center; /* Center the button */
-  margin-top: 20px; /* Space above button */
+  margin-top: 30px; /* Increased space above button */
 }
 
+/* Button styling */
 .btn-info {
   background-color: #00bfff; /* Bright button color */
   border: none; /* Remove border */
-  padding: 10px 20px; /* Button padding */
+  padding: 12px 24px; /* Increased button padding */
   border-radius: 4px; /* Rounded corners */
   color: white; /* White text */
   text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Smooth transition */
 }
 
 .btn-info:hover {

@@ -2,17 +2,18 @@
 .enquiry-container {
   background-color: #ffffff; /* White background for the form section */
   color: black; /* Black text for better contrast */
-  padding: 2rem;
-  margin-top: 1rem; /* Add space below the navbar */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds slight shadow for a modern look */
+  padding: 8rem; /* Increased padding for better spacing */
+  margin-top: 2rem; /* Add more space below the navbar */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slight shadow for a modern look */
+  border-radius: 8px; /* Rounded corners for a softer look */
 }
 
 /* Title styling */
 .enquiry-title {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Slightly larger title */
   font-weight: bold;
   color: #003366; /* Dark blue title for contrast */
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* Increased space below the title */
   text-align: center; /* Center the title */
 }
 
@@ -20,7 +21,7 @@
 .enquiry-description {
   font-size: 1.2rem;
   color: #333333; /* Darker text for better contrast */
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem; /* Increased space below description */
   text-align: center; /* Center the description */
 }
 
@@ -29,7 +30,7 @@
   display: flex;
   justify-content: center; /* Center content horizontally */
   align-items: flex-start; /* Align items to the start */
-  gap: 20px; /* Space between form and map */
+  gap: 40px; /* Increased space between form and map */
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
@@ -49,7 +50,7 @@
 
 /* Form group styling */
 .enquiry-form .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem; /* Increased space below form groups */
 }
 
 /* Input and select styling */
@@ -67,6 +68,9 @@
   border-color: #1D1D8F;
   color: white; /* White text */
   font-size: 1.2rem;
+  padding: 12px 24px; /* Increased button padding */
+  border-radius: 5px; /* Round the button */
+  transition: background-color 0.3s; /* Smooth transition */
 }
 
 /* Button hover styling */
@@ -84,21 +88,21 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .enquiry-container {
-    padding: 1rem;
+    padding: 2.5rem; /* Adjust padding for smaller screens */
   }
 
   .enquiry-title {
-    font-size: 1.5rem;
+    font-size: 2rem; /* Adjust title size */
   }
 
   .enquiry-description {
-    font-size: 1rem;
+    font-size: 1rem; /* Adjust description size */
   }
 
   .enquiry-content {
     flex-direction: column; /* Stack vertically on smaller screens */
     align-items: center; /* Center align the items */
-    gap: 10px; /* Space between form and map */
+    gap: 30px; /* Space between form and map */
   }
 
   .enquiry-form-container,
@@ -115,11 +119,11 @@
 
 @media (max-width: 576px) {
   .enquiry-title {
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Further reduce title font size */
   }
 
   .enquiry-description {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Further reduce description font size */
   }
 
   .map-container iframe {

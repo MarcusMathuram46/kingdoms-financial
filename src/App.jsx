@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const handleLoginClick = () => {
     setShowLogin(true);
@@ -21,18 +22,33 @@ function App() {
     setShowLogin(false);
   };
 
+  const handleSectionChange = (section) => {
+    setActiveSection(section);
+  };
+
+  const renderComponent = () => {
+    switch (activeSection) {
+      case 'home':
+        return <Home />;
+      case 'about':
+        return <About />;
+      case 'services':
+        return <Services />;
+      case 'why-us':
+        return <Why />;
+      case 'enquiry':
+        return <Enquiry />;
+      default:
+        return <Home />;
+    }
+  };
+
   return (
     <div className="App">
-      <Navbar onLoginClick={handleLoginClick} />
-      <main>
-        <Home />
-      </main>
-      <Services />
-      <About />
-      <Why />
-      <Enquiry />
-      <Login show={showLogin} onClose={closeLogin} />
+      <Navbar onLoginClick={handleLoginClick} onSectionChange={handleSectionChange} />
+      <div>{renderComponent()}</div>
       <Footer />
+      <Login show={showLogin} onClose={closeLogin} />
     </div>
   );
 }

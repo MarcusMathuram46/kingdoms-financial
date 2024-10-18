@@ -5,7 +5,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed; /* Make the navbar fixed */
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1200; /* Ensure navbar is above other content */
 }
 
@@ -54,6 +57,11 @@
   font-size: 1rem;
   font-weight: bold;
   transition: color 0.3s;
+}
+
+/* Active link styles */
+.navbar-menu ul li.active a {
+  color: #00bfff; /* Change color for active link */
 }
 
 /* Hover effect for all links except Home */

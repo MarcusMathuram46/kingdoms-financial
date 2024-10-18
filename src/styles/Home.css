@@ -1,7 +1,7 @@
 /* Main horizontal layout */
 .home-container {
     display: flex;
-    height: 100vh; /* Full viewport height */
+    height: calc(100vh - 60px); /* Full viewport height minus navbar height */
     width: 100vw; /* Full viewport width */
     position: relative;
 }
@@ -13,7 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start; /* Align text to the left */
-    padding: 20px; /* Padding for content */
+    padding: 40px; /* Increased padding for content */
     color: white; /* White text */
     z-index: 2; /* Keep above background image */
 }
@@ -36,21 +36,23 @@
 .carousel-button {
     background-color: #17a2b8; /* Bootstrap bg-info color */
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Adjusted padding for better touch targets */
     border: none;
     margin-top: 15px;
     font-size: 1rem;
+    border-radius: 5px; /* Rounded corners for button */
+    transition: background-color 0.3s; /* Smooth transition */
 }
 
 .carousel-button:hover {
-    background-color: #138496;
+    background-color: #138496; /* Darker shade on hover */
 }
 
 /* Right side: Background image */
 .background-image {
     flex: 1; /* Takes the remaining space on the right */
     background-image: url('../images/Home.png');
-    background-size: contain; /* Smaller image */
+    background-size: cover; /* Use cover for better fill */
     background-repeat: no-repeat; /* No repeat */
     background-position: center; /* Centered image */
     animation: verticalSlide 2s infinite alternate; /* Animate up and down faster */
@@ -94,8 +96,16 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .home-container {
+        height: calc(100vh - 50px); /* Adjust for smaller navbar height */
+    }
+
+    .carousel-container {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+
     .carousel-content {
-        max-width: 100%; /* Full width on smaller screens */
+        max-width: 90%; /* Allow more width on smaller screens */
     }
 
     .display-4 {

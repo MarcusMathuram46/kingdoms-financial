@@ -21,7 +21,8 @@ function Enquiry() {
   };
 
   return (
-    <div id='enquiry' className="enquiry-container">
+    <div className='bg-white'>
+      <div id='enquiry' className="enquiry-container">
       <h2 className="enquiry-title">Get in Touch</h2>
       <p className="enquiry-description">
         If you have any query, please contact us. We’d love to hear from you! Please fill out the form below, and our team will get back to you as soon as possible.
@@ -72,9 +73,9 @@ function Enquiry() {
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
                 required
-                className="form-control"
+                className="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
               >
-                <option value="">Select type</option>
+                <option value="" selected>Select type</option>
                 <option value="Mutual-Fund">Mutual Funds</option>
                 <option value="Fixed-Deposit">Fixed Deposits</option>
                 <option value="All-Types-of-Insurance">All Types of Insurance</option>
@@ -124,6 +125,7 @@ function Enquiry() {
           ></iframe>
         </div>
       </div>
+    </div>
     </div>
   );
 }

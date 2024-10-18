@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Navbar.css';
 
-function Navbar({ onLoginClick }) {
+function Navbar({ onLoginClick, onSectionChange }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -11,7 +11,16 @@ function Navbar({ onLoginClick }) {
 
   const closeNavbar = () => {
     setIsOpen(false);
-    onLoginClick(); // Open the login modal at the same time
+  };
+
+  const handleLoginClick = () => {
+    closeNavbar(); // Close the navbar
+    onLoginClick(); // Open the login modal
+  };
+
+  const handleSectionClick = (section) => {
+    closeNavbar(); // Close the navbar
+    onSectionChange(section); // Notify the App component
   };
 
   return (
@@ -21,19 +30,30 @@ function Navbar({ onLoginClick }) {
         className="navbar-toggler" 
         type="button" 
         onClick={toggleNavbar}
+        aria-expanded={isOpen}
+        aria-controls="navbarMenu"
       >
         {isOpen ? '✖' : '☰'}
       </button>
-      <nav className={`navbar-menu ${isOpen ? 'active' : ''}`}>
+      <nav className={`navbar-menu ${isOpen ? 'active' : ''}`} id="navbarMenu">
         <ul>
-          <li><a href="#home" className="home-link">HOME</a></li>
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#services">SERVICES</a></li>
-          <li><a href="#why-us">WHY US</a></li>
-          <li><a href="#enquiry">ENQUIRY</a></li>
+          <li>
+            <a href="#home" onClick={() => handleSectionClick('home')}>HOME</a>
+          </li>
+          <li>
+            <a href="#about" onClick={() => handleSectionClick('about')}>ABOUT</a>
+          </li>
+          <li>
+            <a href="#services" onClick={() => handleSectionClick('services')}>SERVICES</a>
+          </li>
+          <li>
+            <a href="#why-us" onClick={() => handleSectionClick('why-us')}>WHY US</a>
+          </li>
+          <li>
+            <a href="#enquiry" onClick={() => handleSectionClick('enquiry')}>ENQUIRY</a>
+          </li>
           <li className="login-button">
-            {/* Keep icon but make button consistent with other links */}
-            <a href="#login" onClick={closeNavbar}>
+            <a href="#login" onClick={handleLoginClick}>
               <i className="fas fa-sign-in-alt"></i> LOGIN
             </a>
           </li>

@@ -7,7 +7,7 @@ function Footer() {
     <div className="footer-wrapper">
       <div className="footer">
         <div className="footer-section admin-section">
-          <h3>OUR Admin</h3>
+          <h3>OUR <span className="footer-light-blue">Admin</span></h3>
           <img src={admin} alt="Mr. J.P. Ajith Samuel" className="admin-photo circular" />
           <p>Mr. J.P. Ajith Samuel (Admin)</p>
           <p>Business Man, Madurai.</p>
