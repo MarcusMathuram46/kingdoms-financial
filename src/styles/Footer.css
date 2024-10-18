@@ -1,145 +1,178 @@
-.footer {
-  background-color: #003366; /* Matching the theme */
-  color: white; /* White text for contrast */
-  padding: 20px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  text-align: center; /* Center all text in the footer */
+/* Footer Wrapper */
+.footer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh; /* Full height of the screen */
+  background-color: #003366;
 }
 
+/* Footer Main Container */
+.footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Footer Container to hold different sections */
 .footer-container {
   display: flex;
-  justify-content: center; /* Center the footer sections */
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  max-width: 1200px; /* Limit the maximum width */
-  margin: 0 auto; /* Center the container */
-  padding: 0 20px; /* Padding to prevent content from touching edges */
+  justify-content: center; /* Center content horizontally */
+  align-items: flex-start;
+  flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
+/* Individual footer sections */
 .footer-section {
-  flex: 1; /* Equal width for all sections */
+  flex: 1;
   padding: 10px;
-  min-width: 200px; /* Minimum width to avoid too narrow sections */
-  max-width: 300px; /* Maximum width to avoid too wide sections */
-  box-sizing: border-box; /* Include padding in width calculations */
+  min-width: 250px; /* Minimum width for each section */
+  max-width: 300px; /* Limit max width for each section */
+  box-sizing: border-box;
+  text-align: center;
 }
 
+/* Admin section */
 .admin-section {
-  flex: 1 1 100%; /* Take full width on larger screens */
-  display: flex; /* Use flexbox for better centering */
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  margin-bottom: 20px; /* Space below the admin section */
-  text-align: center; /* Center text for admin section */
-  padding: 0 20px; /* Add some horizontal padding */
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 100%;
+  padding: 20px;
 }
 
+/* Admin image */
 .admin-photo {
-  width: 200px; /* Size for larger screens */
-  height: 200px; /* Size for larger screens */
+  width: 200px;
+  height: 200px;
   border-radius: 50%; /* Circular image */
-  margin: 10px 0; /* Vertical spacing */
-  display: block; /* Ensure it's a block element */
-  object-fit: cover; /* Maintain aspect ratio */
+  object-fit: cover;
+  margin: 10px 0;
 }
 
+@media (min-width: 1024px) {
+  .admin-photo {
+    width: 300px;
+    height: 300px;
+  }
+
+  .admin-section {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Footer section titles */
 .footer-section h3 {
-  margin-bottom: 10px; /* Space below headers */
+  margin-bottom: 10px;
 }
 
+/* Footer section paragraphs and lists */
 .footer-section p,
 .footer-section ul {
-  margin: 5px 0; /* Space for paragraphs and lists */
+  margin: 5px 0;
 }
 
+/* Footer links */
 .footer-section a {
-  color: #00bfff; /* Bright link color */
-  text-decoration: none; /* Remove underline */
+  color: #00bfff; /* Light blue */
+  text-decoration: none;
 }
 
 .footer-section a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }
 
+/* Subscribe form styling */
 .subscribe {
-  display: flex; /* Flexbox for input and button */
-  margin-top: 10px; /* Space above subscribe */
-  justify-content: center; /* Center the subscribe elements */
+  display: flex;
+  justify-content: flex-end; /* Aligns the subscribe form to the right */
+  align-items: center;
+  margin-top: 10px;
 }
 
 .subscribe input {
   padding: 8px;
-  border: none; /* Remove border */
-  border-radius: 4px; /* Round the input */
-  margin-right: 5px; /* Space between input and button */
-  flex: 1; /* Take remaining space */
+  border: none;
+  border-radius: 4px;
+  margin-right: 5px;
+  flex: 1;
 }
 
 .subscribe button {
-  padding: 8px 15px; /* Padding for the button */
-  border: none; /* Remove border */
-  border-radius: 4px; /* Round the button */
-  background-color: #00bfff; /* Light blue button color */
-  color: white; /* Button text color */
-  cursor: pointer; /* Change cursor to pointer */
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #00bfff;
+  color: white;
+  cursor: pointer;
 }
 
 .subscribe button:hover {
-  background-color: #0080b3; /* Darker blue on hover */
+  background-color: #0080b3;
 }
 
+/* Footer bottom section */
 .footer-bottom {
-  text-align: center; /* Center the text */
-  padding: 10px 0; /* Space above and below the text */
-  background-color: white; /* White background for the bottom text */
-  color: black; /* Black text color */
-  position: relative; /* Ensure it sits below the footer */
-  width: 100%; /* Full width */
+  text-align: center;
+  padding: 10px 0;
+  background-color: white;
+  color: black;
+  width: 100%;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for medium screens */
 @media (max-width: 768px) {
   .footer-container {
-    flex-direction: column; /* Stack sections vertically on smaller screens */
-    align-items: center; /* Center sections on smaller screens */
-    padding: 0 10px; /* Less padding on smaller screens */
+    flex-direction: column;
+    align-items: center;
   }
 
   .footer-section {
-    margin-bottom: 20px; /* Space below each section */
-    flex: 1; /* Ensure equal width on smaller screens */
-    max-width: 100%; /* Allow full width on smaller screens */
+    max-width: 100%;
+    margin-bottom: 20px;
   }
 
   .admin-photo {
-    width: 120px; /* Adjust size for smaller screens */
-    height: 120px; /* Adjust size for smaller screens */
+    width: 120px;
+    height: 120px;
   }
 
   .subscribe {
-    flex-direction: column; /* Stack input and button vertically on smaller screens */
-    align-items: center; /* Center items in subscribe */
+    justify-content: center; /* Center the form on smaller screens */
+    flex-direction: column;
+    align-items: center;
   }
 
   .subscribe input {
-    margin-bottom: 10px; /* Space below input on mobile */
-    max-width: 70%; /* Limit width of input */
+    margin-bottom: 10px;
+    max-width: 70%;
   }
 
   .subscribe button {
-    max-width: 30%; /* Limit width of button */
+    max-width: 30%;
   }
 }
 
+/* Responsive adjustments for small screens */
 @media (max-width: 480px) {
   .footer-section h3 {
-    font-size: 1.5rem; /* Smaller font size for headings */
+    font-size: 1.5rem;
   }
 
   .footer-section p,
   .footer-section ul {
-    font-size: 0.9rem; /* Smaller font size for paragraphs and lists */
+    font-size: 0.9rem;
   }
 }
