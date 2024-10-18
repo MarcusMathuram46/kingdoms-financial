@@ -1,11 +1,11 @@
 /* Footer Wrapper */
 .footer-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center the footer wrapper */
   align-items: center;
   flex-direction: column;
   min-height: 100vh; /* Full height of the screen */
-  background-color: #003366;
+  background-color: #003366; /* Dark blue background */
 }
 
 /* Footer Main Container */
@@ -13,20 +13,19 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  color: white;
-  text-align: center;
+  color: white; /* Ensure all text is white */
   padding: 20px 0;
 }
 
 /* Footer Container to hold different sections */
 .footer-container {
   display: flex;
-  justify-content: center; /* Center content horizontally */
+  justify-content: flex-start; /* Align sections to the left */
   align-items: flex-start;
   flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px; /* Equal padding on sides */
 }
 
 /* Individual footer sections */
@@ -36,7 +35,7 @@
   min-width: 250px; /* Minimum width for each section */
   max-width: 300px; /* Limit max width for each section */
   box-sizing: border-box;
-  text-align: center;
+  text-align: left; /* Left-align all text inside sections */
 }
 
 /* Admin section */
@@ -44,10 +43,10 @@
   flex: 1 1 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Center the admin photo */
   justify-content: center;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: center; /* Center-align text for admin section */
   max-width: 100%;
   padding: 20px;
 }
@@ -66,11 +65,6 @@
     width: 300px;
     height: 300px;
   }
-
-  .admin-section {
-    align-items: center;
-    justify-content: center;
-  }
 }
 
 /* Footer section titles */
@@ -84,43 +78,56 @@
   margin: 5px 0;
 }
 
+/* Remove list-style (bullets) */
+.footer-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
 /* Footer links */
 .footer-section a {
-  color: #00bfff; /* Light blue */
-  text-decoration: none;
+  color: white; /* White color for links */
+  text-decoration: none; /* No underline for links */
 }
 
 .footer-section a:hover {
-  text-decoration: underline;
+  color: #00bfff; /* Light blue color on hover */
 }
 
 /* Subscribe form styling */
 .subscribe {
   display: flex;
-  justify-content: flex-end; /* Aligns the subscribe form to the right */
-  align-items: center;
+  flex-direction: column; /* Stack input and button vertically */
+  align-items: flex-start; /* Align to left */
   margin-top: 10px;
+  text-align: left; /* Left-align text */
 }
 
 .subscribe input {
   padding: 8px;
-  border: none;
-  border-radius: 4px;
-  margin-right: 5px;
-  flex: 1;
+  border: none; /* Remove default border */
+  border-bottom: 2px solid white; /* Add white underline */
+  background-color: transparent; /* Make background transparent */
+  color: white; /* Text color */
+  width: 100%; /* Full width */
+  max-width: 300px; /* Optional: limit width */
+  outline: none; /* Remove outline on focus */
 }
 
 .subscribe button {
-  padding: 8px 15px;
+  padding: 12px; /* Increase padding for larger button */
   border: none;
-  border-radius: 4px;
-  background-color: #00bfff;
+  border-radius: 0; /* Square corners */
+  background-color: #00bfff; /* Button color */
   color: white;
   cursor: pointer;
+  width: 100%; /* Match width with input field */
+  max-width: 300px; /* Optional: limit width */
+  margin-top: 10px; /* Space between input and button */
 }
 
 .subscribe button:hover {
-  background-color: #0080b3;
+  background-color: #0080b3; /* Darker blue on hover */
 }
 
 /* Footer bottom section */
@@ -135,33 +142,29 @@
 /* Responsive adjustments for medium screens */
 @media (max-width: 768px) {
   .footer-container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Stack sections vertically */
+    align-items: flex-start; /* Align sections to left */
+    padding: 0 20px; /* Maintain padding on sides */
   }
 
   .footer-section {
-    max-width: 100%;
+    max-width: 100%; /* Allow sections to take full width */
     margin-bottom: 20px;
+    text-align: left; /* Left-align text for smaller screens */
   }
 
   .admin-photo {
-    width: 120px;
-    height: 120px;
+    width: 250px; /* Increase size of admin photo on smaller screens */
+    height: 250px;
   }
 
   .subscribe {
-    justify-content: center; /* Center the form on smaller screens */
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Align subscribe form to the left */
   }
 
-  .subscribe input {
-    margin-bottom: 10px;
-    max-width: 70%;
-  }
-
+  .subscribe input,
   .subscribe button {
-    max-width: 30%;
+    max-width: 100%; /* Allow input and button to take full width */
   }
 }
 
@@ -174,5 +177,19 @@
   .footer-section p,
   .footer-section ul {
     font-size: 0.9rem;
+  }
+
+  .subscribe {
+    flex-direction: column;
+    align-items: flex-start; /* Align to left */
+  }
+
+  .subscribe input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .subscribe button {
+    width: 100%; /* Match width with input field */
   }
 }

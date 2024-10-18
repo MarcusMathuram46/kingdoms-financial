@@ -8,8 +8,8 @@ function Footer() {
       <div className="footer">
         <div className="footer-section admin-section">
           <h3>OUR Admin</h3>
-          <img src={admin} alt="Mr.J.P.Ajith Samuel" className="admin-photo circular" />
-          <p>Mr.J.P.Ajith Samuel (Admin)</p>
+          <img src={admin} alt="Mr. J.P. Ajith Samuel" className="admin-photo circular" />
+          <p>Mr. J.P. Ajith Samuel (Admin)</p>
           <p>Business Man, Madurai.</p>
         </div>
 
@@ -53,6 +53,9 @@ function Footer() {
                 <a href="#team">Team</a>
               </li>
             </ul>
+          </div>
+          <div className="footer-section subscribe-section">
+            <h3>Subscribe</h3>
             <div className="subscribe">
               <input type="email" placeholder="Enter email" />
               <button className="btn btn-info">Subscribe</button>
