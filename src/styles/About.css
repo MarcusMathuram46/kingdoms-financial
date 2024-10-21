@@ -15,6 +15,10 @@
     text-align: center; /* Center align text */
     z-index: 1; /* Ensure content is above background */
 }
+.about-title{
+    font-size: 2rem;
+    font-weight: bolder;
+}
 
 .about-light-blue {
     color: rgb(0, 225, 255); 
@@ -82,11 +86,12 @@
 
 @media (max-width: 480px) {
     .about-title {
-        font-size: 1.75rem; /* Further reduce title font size */
+        font-size: 1.5rem; /* Further reduce title font size */
+        font-weight: bolder;
     }
 
     .about-description {
-        font-size: 1rem; /* Further reduce description font size */
+        font-size: 1.5rem; /* Further reduce description font size */
     }
 
     .read-more-button {

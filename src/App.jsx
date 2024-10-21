@@ -26,39 +26,32 @@ function App() {
     setActiveSection(section);
   };
 
-  const renderComponent = () => {
-    if (activeSection === 'home') {
-      return (
-        <>
-          <Home />
-          <Services />
-          <About />
-          <Why />
-          {/* You can also add any other components you want to show here */}
-        </>
-      );
-    }
-
-    if (activeSection === 'enquiry') {
-      return <Enquiry />;
-    }
-
-    // For other sections
-    switch (activeSection) {
-      case 'about':
-        return <About />;
-      case 'services':
-        return <Services />;
-      case 'why-us':
-        return <Why />;
-      default:
-        return <Home />;
-    }
+  // Use an object to map sections to components
+  const sections = {
+    home: (
+      <>
+        <Home />
+        <Services />
+        <About />
+        <Why />
+      </>
+    ),
+    enquiry: <Enquiry />,
+    about: <About />,
+    services: <Services />,
+    'why-us': <Why />
   };
+
+  // Default to Home if activeSection is undefined
+  const renderComponent = () => sections[activeSection] || sections['home'];
 
   return (
     <div className="App">
-      <Navbar onLoginClick={handleLoginClick} onSectionChange={handleSectionChange} />
+      <Navbar 
+        onLoginClick={handleLoginClick} 
+        onSectionChange={handleSectionChange} 
+        activeSection={activeSection} // Pass activeSection to highlight the active nav item
+      />
       <div>{renderComponent()}</div>
       <Footer />
       <Login show={showLogin} onClose={closeLogin} />
