@@ -67,16 +67,17 @@
 /* Carousel indicators (circle buttons) at bottom center */
 .carousel-indicators {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center the indicators */
     position: absolute;
     bottom: 20px; /* Positioned at the bottom */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Center the indicators */
+    z-index: 10; /* Ensure it appears above other content */
 }
 
 .carousel-indicators button {
-    width: 30px; /* Larger width */
-    height: 30px; /* Larger height */
+    width: 12px; /* Smaller width for a more subtle button */
+    height: 12px; /* Smaller height */
     border-radius: 50%; /* Circular shape */
     background-color: #fff; /* White color */
     border: none;
@@ -87,7 +88,7 @@
 
 .carousel-indicators button:hover {
     background-color: rgba(255, 255, 255, 0.7);
-    transform: scale(1.1); /* Slightly enlarge on hover */
+    transform: scale(1.2); /* Slightly enlarge on hover */
 }
 
 .carousel-indicators button.active {

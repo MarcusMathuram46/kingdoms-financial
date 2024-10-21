@@ -1,6 +1,6 @@
 .about-wrapper {
     position: relative; /* For positioning background image */
-    background-color: #003366; /* Dark blue background */
+    background-color: #1c126d; /* Dark blue background */
     color: white; /* White text for readability */
     padding: 8rem; /* Increased top and bottom padding for visibility under fixed navbar */
     overflow: hidden; /* Hide overflowing elements */
