@@ -20,7 +20,7 @@ function Home() {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <div className="carousel-content">
-                <h2 className="display-4">Comprehensive Investment Solutions</h2>
+                <h1 className="display-4">Comprehensive Investment Solutions</h1>
                 <p className="lead">Explore diverse investment opportunities with our expert guidance.</p>
                 <button className="btn btn-info carousel-button">Read More</button>
               </div>
@@ -28,7 +28,7 @@ function Home() {
 
             <div className="carousel-item">
               <div className="carousel-content">
-                <h2 className="display-4">Flexible Financing Options</h2>
+                <h1 className="display-4">Flexible Financing Options</h1>
                 <p className="lead">Access a range of loan options designed to fit your personal and business needs.</p>
                 <button className="btn btn-info carousel-button">Read More</button>
               </div>
@@ -36,7 +36,7 @@ function Home() {
 
             <div className="carousel-item">
               <div className="carousel-content">
-                <h2 className="display-4">Complete Insurance Coverage</h2>
+                <h1 className="display-4">Complete Insurance Coverage</h1>
                 <p className="lead">Protect what matters most with our comprehensive insurance solutions.</p>
                 <button className="btn btn-info carousel-button">Read More</button>
               </div>
