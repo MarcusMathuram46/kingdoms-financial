@@ -11,7 +11,9 @@
   right: 0;
   z-index: 1200; /* Ensure navbar is above other content */
 }
-
+.nav-cursor{
+  cursor: pointer;
+}
 .navbar-brand {
   color: white;
   font-size: 1.8rem;

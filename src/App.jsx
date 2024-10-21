@@ -9,54 +9,65 @@ import About from './components/About';
 import Why from './components/Why';
 import Enquiry from './components/Enquiry';
 import Footer from './components/Footer';
+import Admin from './components/Admin';
 
 function App() {
-  const [showLogin, setShowLogin] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+    const [showLogin, setShowLogin] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false); // Track if an admin has logged in
+    const [activeSection, setActiveSection] = useState('home');
 
-  const handleLoginClick = () => {
-    setShowLogin(true);
-  };
+    const handleLoginClick = () => setShowLogin(true);
+    const closeLogin = () => setShowLogin(false);
 
-  const closeLogin = () => {
-    setShowLogin(false);
-  };
+    const handleSectionChange = (section) => setActiveSection(section);
 
-  const handleSectionChange = (section) => {
-    setActiveSection(section);
-  };
+    const handleLoginSuccess = () => {
+        console.log("Admin logged in successfully");
+        setIsAdmin(true); // Mark admin as logged in
+        setActiveSection('admin'); // Switch to the admin section
+        closeLogin(); // Close the login modal
+    };
 
-  // Use an object to map sections to components
-  const sections = {
-    home: (
-      <>
-        <Home />
-        <Services />
-        <About />
-        <Why />
-      </>
-    ),
-    enquiry: <Enquiry />,
-    about: <About />,
-    services: <Services />,
-    'why-us': <Why />
-  };
+    const handleLogout = () => {
+        setIsAdmin(false);
+        setActiveSection('home'); // Redirect to home after logout
+    };
 
-  // Default to Home if activeSection is undefined
-  const renderComponent = () => sections[activeSection] || sections['home'];
+    const renderComponent = () => {
+        console.log("Rendering component. Active Section:", activeSection, "Is Admin:", isAdmin);
+        
+        switch (activeSection) {
+            case 'home':
+                return (
+                    <>
+                        <Home />
+                        <Services />
+                        <About />
+                        <Why />
+                    </>
+                );
+            case 'enquiry':
+                return <Enquiry />;
+            case 'admin':
+                return <Admin />;
+            default:
+                return <Home />; // Fallback
+        }
+    };
 
-  return (
-    <div className="App">
-      <Navbar 
-        onLoginClick={handleLoginClick} 
-        onSectionChange={handleSectionChange} 
-        activeSection={activeSection} // Pass activeSection to highlight the active nav item
-      />
-      <div>{renderComponent()}</div>
-      <Footer />
-      <Login show={showLogin} onClose={closeLogin} />
-    </div>
-  );
+    return (
+        <div className="App">
+            <Navbar 
+                isAdmin={isAdmin} 
+                onLoginClick={handleLoginClick} 
+                onSectionChange={handleSectionChange} 
+                onLogout={handleLogout} 
+            />
+            <div>{renderComponent()}</div>
+            <Footer />
+            <Login show={showLogin} onClose={closeLogin} onLoginSuccess={handleLoginSuccess} />
+        </div>
+    );
 }
 
 export default App;
