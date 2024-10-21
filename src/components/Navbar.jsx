@@ -41,13 +41,13 @@ function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
                         <a onClick={() => handleSectionClick('home')}>HOME</a>
                     </li>
                     <li>
-                        <a onClick={() => handleSectionClick('about')}>ABOUT</a>
+                        <a onClick={() => handleSectionClick('services')}>OUR SERVICES</a>
                     </li>
                     <li>
-                        <a onClick={() => handleSectionClick('services')}>SERVICES</a>
+                        <a onClick={() => handleSectionClick('about')}>ABOUT US</a>
                     </li>
                     <li>
-                        <a onClick={() => handleSectionClick('why-us')}>WHY US</a>
+                        <a onClick={() => handleSectionClick('why')}>WHY CHOOSE US</a>
                     </li>
                     <li>
                         <a onClick={() => handleSectionClick('enquiry')}>ENQUIRY</a>

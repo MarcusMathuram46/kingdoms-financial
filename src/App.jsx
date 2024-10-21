@@ -13,45 +13,78 @@ import Admin from './components/Admin';
 
 function App() {
     const [showLogin, setShowLogin] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false); // Track if an admin has logged in
+    const [isAdmin, setIsAdmin] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
+    const [advertisements, setAdvertisements] = useState([]);
 
     const handleLoginClick = () => setShowLogin(true);
     const closeLogin = () => setShowLogin(false);
 
-    const handleSectionChange = (section) => setActiveSection(section);
-
     const handleLoginSuccess = () => {
-        console.log("Admin logged in successfully");
-        setIsAdmin(true); // Mark admin as logged in
-        setActiveSection('admin'); // Switch to the admin section
-        closeLogin(); // Close the login modal
+        setIsAdmin(true);
+        setActiveSection('admin');
+        closeLogin();
     };
 
-    const handleLogout = () => {
-        setIsAdmin(false);
-        setActiveSection('home'); // Redirect to home after logout
+    const handleAddAdvertisement = (ad) => {
+        setAdvertisements((prevAds) => [...prevAds, ad]);
     };
 
-    const renderComponent = () => {
-        console.log("Rendering component. Active Section:", activeSection, "Is Admin:", isAdmin);
-        
+    const renderComponents = () => {
+        if (activeSection === 'home') {
+            return (
+                <>
+                    <Home advertisements={advertisements} />
+                    <Services />
+                    <About />
+                    <Why />
+                    {/* No Enquiry component here */}
+                    <Footer />
+                </>
+            );
+        }
+
         switch (activeSection) {
-            case 'home':
+            case 'services':
                 return (
                     <>
-                        <Home />
                         <Services />
+                        <Footer />
+                    </>
+                );
+            case 'about':
+                return (
+                    <>
                         <About />
+                        <Footer />
+                    </>
+                );
+            case 'why':
+                return (
+                    <>
                         <Why />
+                        <Footer />
                     </>
                 );
             case 'enquiry':
-                return <Enquiry />;
+                return (
+                    <>
+                        <Enquiry />
+                        <Footer />
+                    </>
+                );
             case 'admin':
-                return <Admin />;
+                return <Admin onAddAdvertisement={handleAddAdvertisement} />;
             default:
-                return <Home />; // Fallback
+                return (
+                    <>
+                        <Home advertisements={advertisements} />
+                        <Services />
+                        <About />
+                        <Why />
+                        <Footer />
+                    </>
+                );
         }
     };
 
@@ -60,11 +93,10 @@ function App() {
             <Navbar 
                 isAdmin={isAdmin} 
                 onLoginClick={handleLoginClick} 
-                onSectionChange={handleSectionChange} 
-                onLogout={handleLogout} 
+                onSectionChange={setActiveSection} 
+                onLogout={() => setIsAdmin(false)} // Add logout function
             />
-            <div>{renderComponent()}</div>
-            <Footer />
+            <div>{renderComponents()}</div> {/* Render the selected components here */}
             <Login show={showLogin} onClose={closeLogin} onLoginSuccess={handleLoginSuccess} />
         </div>
     );
