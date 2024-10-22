@@ -3,7 +3,7 @@ import axios from "axios";
 export const loginUser = async (username, password) => {
   try {
     // Perform login API call
-    const response = await axios.post('http://localhost:5000/api/login', {
+    const response = await axios.post('https://kingdoms-financial-be.onrender.com/api/login', {
       username,
       password,
     });

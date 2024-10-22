@@ -38,7 +38,6 @@ function App() {
                     <Services />
                     <About />
                     <Why />
-                    {/* No Enquiry component here */}
                     <Footer />
                 </>
             );

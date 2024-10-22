@@ -27,10 +27,7 @@ function Login({ show, onClose, onLoginSuccess }) {
     }
 
     try {
-      console.log('Attempting to login with:', { userName, password }); // Debugging log
       const data = await loginUser(userName, password);
-      console.log('Login response:', data); // Log the response
-
       // Handle login success
       if (data.isAdmin) {
         setMessage("Login successful! Redirecting to admin page...");

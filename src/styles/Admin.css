@@ -1,15 +1,67 @@
-/* Admin.css */
+.admin-container {
+    max-width: 600px; /* Adjust the max width as needed */
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 h1 {
+    text-align: center;
     padding: 20px;
 }
 
-/* Home.css */
-.advertisement-slider {
+.admin-form {
     display: flex;
-    overflow-x: auto;
+    flex-direction: column; /* Stack inputs vertically */
 }
 
-.advertisement-slide {
-    min-width: 300px; /* Adjust as needed */
-    margin-right: 20px;
+.input-group {
+    margin-bottom: 15px; /* Space between inputs */
+}
+
+input[type="text"],
+textarea {
+    width: 100%; /* Full width for inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+.submit-button {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px; /* Smaller font size on mobile */
+    }
+
+    .input-group {
+        margin-bottom: 10px;
+    }
+
+    .submit-button {
+        padding: 8px;
+    }
 }
