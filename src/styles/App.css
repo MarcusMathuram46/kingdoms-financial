@@ -1,7 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   line-height: 1.15;
   background-color: #1c126d; /* Match the background color from the image */
   height: 100%;
@@ -21,12 +21,31 @@ html, body {
   color: white;
   padding: 15px 20px;
   font-size: 1.2rem; /* Adjusted for a modern look */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #002244;
+  border-radius: 5px;
 }
 
 /* Main content styling */
 main {
   flex: 1;
-  padding: 20px;
+  padding: 80px 20px; /* Add padding to avoid overlap with the fixed navbar */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,14 +66,62 @@ main {
   margin-top: auto; /* Push footer to the bottom of the page */
 }
 
-/* Media queries for responsiveness */
+/* Advertisement Slider */
+.advertisement-slider {
+  margin: 40px auto;
+  padding: 10px;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.advertisement-slider img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  main {
+    padding: 60px 15px; /* Reduce padding on smaller screens */
+  }
+}
+
 @media (max-width: 767px) {
   .App {
     padding: 0 15px;
   }
 
-  .footer-section {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .footer {
     text-align: center;
-    margin-bottom: 20px;
+    padding: 15px;
+  }
+
+  main {
+    padding: 50px 10px;
+    font-size: 1rem; /* Adjust text size for smaller screens */
+  }
+
+  .advertisement-slider {
+    width: 95%;
+  }
+}
+
+/* Additional small screen optimizations */
+@media (max-width: 480px) {
+  .navbar a {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  main {
+    font-size: 0.9rem;
   }
 }

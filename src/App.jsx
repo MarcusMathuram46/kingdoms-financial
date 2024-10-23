@@ -14,7 +14,11 @@ import axios from 'axios'; // Import axios for API calls
 
 function App() {
     const [showLogin, setShowLogin] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(() => {
+        // Check localStorage for admin state
+        const savedIsAdmin = localStorage.getItem('isAdmin');
+        return savedIsAdmin === 'true'; // Return true or false based on localStorage
+    });
     const [activeSection, setActiveSection] = useState('home');
     const [advertisements, setAdvertisements] = useState([]);
 
@@ -41,6 +45,7 @@ function App() {
     // Handle successful login (admin access granted)
     const handleLoginSuccess = () => {
         setIsAdmin(true);
+        localStorage.setItem('isAdmin', 'true'); // Persist admin state in localStorage
         setActiveSection('admin');
         closeLogin();
     };
@@ -53,6 +58,7 @@ function App() {
     // Handle logout: clear admin access and redirect to home
     const handleLogout = () => {
         setIsAdmin(false);
+        localStorage.removeItem('isAdmin'); // Remove admin state from localStorage
         setActiveSection('home');
     };
 

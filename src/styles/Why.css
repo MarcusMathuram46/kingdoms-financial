@@ -32,9 +32,9 @@
   display: flex; /* Center the image */
   justify-content: center; /* Center the image horizontally */
   align-items: center; /* Center the image vertically */
-  background-color: #003366; /* Dark blue background color */
-  padding: 2px; /* Padding to create space around the image */
-  border: 0.5px solid white; /* Very thin white outline around the circle */
+  background-color: white; /* Inner circle color */
+  border: 5px solid #003366; /* Dark blue border */
+  padding: 5px; /* Padding to create space around the image */
 }
 
 /* Light blue text styling */
@@ -44,7 +44,7 @@
 
 /* Circle image styling */
 .circle-image {
-  width: 90%; /* Image fills 90% of the circle */
+  width: 100%; /* Image fills 100% of the circle */
   height: auto; /* Maintain aspect ratio */
   border-radius: 50%; /* Ensure the image is also circular */
   margin: auto; /* Center the image */
@@ -108,7 +108,7 @@
   }
 
   .circle-image {
-    width: 90%; /* Image fills 80% of the circle */
+    width: 90%; /* Image fills 90% of the circle */
   }
 
   .why-title {

@@ -1,20 +1,35 @@
+.admin {
+    padding: 40px;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    min-height: 100vh; /* Full viewport height for centering */
+}
+
 .admin-container {
     max-width: 600px; /* Adjust the max width as needed */
-    margin: auto;
-    padding: 20px;
+    margin: 20px auto; /* Center horizontally and add vertical margin */
+    padding: 20px; /* Reduced padding for a cleaner look */
     background-color: #f8f9fa; /* Light background for contrast */
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack inputs vertically */
+    justify-content: center; /* Center content vertically within the container */
+    align-items: center; /* Center content horizontally within the container */
 }
 
 h1 {
     text-align: center;
-    padding: 20px;
+    padding: 10px; /* Reduced padding for better spacing */
+    font-size: 32px; /* Default font size */
+    color: #003366; /* Dark color for better contrast */
 }
 
 .admin-form {
     display: flex;
     flex-direction: column; /* Stack inputs vertically */
+    width: 100%; /* Ensure form takes up full width of container */
 }
 
 .input-group {
@@ -24,9 +39,10 @@ h1 {
 input[type="text"],
 textarea {
     width: 100%; /* Full width for inputs */
-    padding: 10px;
+    padding: 20px; /* Increased padding for better touch targets */
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 1rem; /* Responsive font size */
 }
 
 textarea {
@@ -36,32 +52,66 @@ textarea {
 .submit-button {
     background-color: #007bff; /* Bootstrap primary color */
     color: white;
-    padding: 10px;
+    padding: 12px; /* Increased padding for better touch targets */
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 1rem; /* Responsive font size */
 }
 
 .submit-button:hover {
     background-color: #0056b3; /* Darker shade on hover */
 }
 
+.image-preview {
+    max-width: 100%; /* Ensure the image doesn't overflow */
+    margin-top: 10px;
+    margin-bottom: 15px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+}
+
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
     .admin-container {
-        padding: 15px;
+        padding: 25px;
+        margin: 20px auto; /* Adjust vertical margin for smaller screens */
     }
 
     h1 {
         font-size: 24px; /* Smaller font size on mobile */
+        margin: 10px 0; /* Ensure there's space around the heading */
     }
 
     .input-group {
         margin-bottom: 10px;
     }
 
+    input[type="text"],
+    textarea {
+        padding: 20px; /* Consistent padding on smaller screens */
+        font-size: 0.9rem; /* Slightly smaller font size on mobile */
+    }
+
     .submit-button {
-        padding: 8px;
+        padding: 10px; /* Consistent padding for button */
+        font-size: 0.9rem; /* Slightly smaller font size for button */
+    }
+}
+
+/* Ensure that the container has a consistent height on smaller screens */
+@media (max-height: 600px) {
+    .admin-container {
+        margin-top: 50px; /* Reduce top margin on small screens */
+        margin-bottom: 20px; /* Reduce bottom margin on small screens */
+        padding: 50px; /* Reduce padding on small screens */
+        align-items: center;
+        justify-content: center;
     }
 }

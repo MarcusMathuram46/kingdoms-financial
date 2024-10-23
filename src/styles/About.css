@@ -15,7 +15,8 @@
     text-align: center; /* Center align text */
     z-index: 1; /* Ensure content is above background */
 }
-.about-title{
+
+.about-title {
     font-size: 2rem;
     font-weight: bolder;
 }
@@ -26,21 +27,25 @@
 
 .about-content {
     display: flex; /* Horizontal layout */
-    justify-content: space-between; /* Distribute space evenly */
+    justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
     margin-top: 30px; /* Increased space above the content */
 }
 
+.about-image,
+.about-text {
+    flex: 1; /* Equal space for image and text */
+    max-width: 100%; /* Set a maximum width for both */
+    margin: 0 20px; /* Space between image and text */
+}
+
 .about-image {
-    flex: 0 0 50%; /* Take up 50% of the space */
-    max-width: 100%; /* Ensure image fits container */
+    max-width: 50%; /* Ensure image fits container */
     height: auto; /* Maintain aspect ratio */
 }
 
 .about-text {
-    flex: 1; /* Take the remaining space */
     text-align: left; /* Align text to the left */
-    padding-left: 20px; /* Add padding for text spacing */
 }
 
 .about-subtitle {
@@ -72,15 +77,10 @@
         text-align: center; /* Center text */
     }
 
-    .about-image {
-        max-width: 80%; /* Increase image size on smaller screens */
-        margin-bottom: 20px; /* Space below image */
-    }
-
+    .about-image,
     .about-text {
-        flex: none; /* Prevent taking full space */
-        width: 100%; /* Full width for text */
-        padding-left: 0; /* Remove left padding */
+        max-width: 80%; /* Increase width on smaller screens */
+        margin: 10px 0; /* Adjust margin for spacing */
     }
 }
 

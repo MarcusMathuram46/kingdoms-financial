@@ -8,6 +8,7 @@ function Admin({ onAddAdvertisement }) {
     const [imagePreview, setImagePreview] = useState(null);
     const [description, setDescription] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false); // Loader state
+    const [errorMessage, setErrorMessage] = useState(''); // State for error messages
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -16,7 +17,6 @@ function Admin({ onAddAdvertisement }) {
             return;
         }
         setImage(file);
-
         if (file) {
             setImagePreview(URL.createObjectURL(file));
         }
@@ -25,8 +25,7 @@ function Admin({ onAddAdvertisement }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true); // Start loader
-        console.log("Submitting form with title:", title);
-        console.log("Image file:", image);
+        setErrorMessage(''); // Reset error message
 
         try {
             // First, upload the image
@@ -51,15 +50,15 @@ function Admin({ onAddAdvertisement }) {
             // Call the onAddAdvertisement prop to update the state in App
             onAddAdvertisement(adResponse.data);
 
-            // Reset form after submission
+            // Reset form after successful submission
             setTitle('');
-            setImage(null); // Reset the image input
-            setImagePreview(null); // Reset the image preview
+            setImage(null);
+            setImagePreview(null);
             setDescription('');
             alert("Advertisement added successfully!");
         } catch (error) {
-            console.error("Error adding advertisement:", error.response ? error.response.data : error.message); // Log server error response
-            alert("Failed to add advertisement. Please try again.");
+            console.error("Error adding advertisement:", error.response ? error.response.data : error.message);
+            setErrorMessage("Failed to add advertisement. Please try again."); // Set error message for UI display
         } finally {
             setIsSubmitting(false); // Stop loader
         }
@@ -75,42 +74,49 @@ function Admin({ onAddAdvertisement }) {
     }, [imagePreview]);
 
     return (
-        <div className="admin-container">
-            <h1>Welcome, Admin!</h1>
-            <form onSubmit={handleSubmit} className="admin-form">
-                <div className="input-group">
-                    <input 
-                        type="text" 
-                        placeholder="Title" 
-                        value={title} 
-                        onChange={(e) => setTitle(e.target.value)} 
-                        required 
-                        disabled={isSubmitting} // Disable during submission
-                    />
-                </div>
-                <div className="input-group">
-                    <input 
-                        type="file" 
-                        accept="image/*" 
-                        onChange={handleImageChange} 
-                        required 
-                        disabled={isSubmitting} // Disable during submission
-                    />
-                </div>
-                {imagePreview && <img src={imagePreview} alt="Preview" className="image-preview" />}
-                <div className="input-group">
-                    <textarea 
-                        placeholder="Description" 
-                        value={description} 
-                        onChange={(e) => setDescription(e.target.value)} 
-                        required 
-                        disabled={isSubmitting} // Disable during submission
-                    />
-                </div>
-                <button type="submit" className="submit-button" disabled={isSubmitting}>
-                    {isSubmitting ? "Adding..." : "Add Advertisement"}
-                </button>
-            </form>
+        <div className="admin">
+            <div className="admin-container">
+                <h1>Welcome, Admin!</h1>
+                {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
+                <form onSubmit={handleSubmit} className="admin-form pt-xl-5">
+                    <div className="input-group">
+                        <input 
+                            type="text" 
+                            placeholder="Title" 
+                            value={title} 
+                            onChange={(e) => setTitle(e.target.value)} 
+                            required 
+                            disabled={isSubmitting} 
+                        />
+                    </div>
+                    <div className="input-group">
+                        <input 
+                            type="file" 
+                            accept="image/*" 
+                            onChange={handleImageChange} 
+                            required 
+                            disabled={isSubmitting} 
+                        />
+                    </div>
+                    {imagePreview && <img src={imagePreview} alt="Preview" className="image-preview" />}
+                    <div className="input-group">
+                        <textarea 
+                            placeholder="Description" 
+                            value={description} 
+                            onChange={(e) => setDescription(e.target.value)} 
+                            required 
+                            disabled={isSubmitting} 
+                        />
+                    </div>
+                    <button type="submit" className="submit-button" disabled={isSubmitting}>
+                        {isSubmitting ? (
+                            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        ) : (
+                            "Add Advertisement"
+                        )}
+                    </button>
+                </form>
+            </div>
         </div>
     );
 }

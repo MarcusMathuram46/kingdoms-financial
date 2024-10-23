@@ -1,3 +1,7 @@
+.homes {
+    padding: 70px;
+}
+
 /* Main horizontal layout */
 .home-container {
     display: flex;
@@ -8,138 +12,161 @@
 
 /* Left side: Carousel section */
 .carousel-container {
-    flex: 1; /* Takes up half of the screen */
+    flex: 1; 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Align text to the left */
-    padding: 40px; /* Increased padding for content */
-    color: white; /* White text */
-    z-index: 2; /* Keep above background image */
+    align-items: center; 
+    padding: 40px 10px; 
+    color: white; 
+    z-index: 2; 
 }
 
 /* Carousel item */
 .carousel-item {
-    display: none; /* Hide all slides initially */
+    display: none; 
 }
 
 .carousel-item.active {
     display: block; /* Show only the active slide */
 }
 
+/* Centering content vertically and spacing */
 .carousel-content {
-    max-width: 500px; /* Max width for readable text */
-    text-align: left;
+    display: flex; 
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center content */
+    max-width: 100%; /* Allow the content to fill available space */
+    padding: 20px; /* Padding for top and bottom */
+}
+
+/* Advertisement layout */
+.carousel-image {
+    max-width: 300px; /* Set a max width for the image */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px 0; /* Space around the image */
 }
 
 /* "Read More" button */
 .carousel-button {
-    background-color: #17a2b8; /* Bootstrap bg-info color */
+    background-color: #17a2b8; 
     color: white;
-    padding: 12px 24px; /* Adjusted padding for better touch targets */
+    padding: 12px 24px; 
     border: none;
     margin-top: 15px;
     font-size: 1rem;
-    border-radius: 5px; /* Rounded corners for button */
-    transition: background-color 0.3s; /* Smooth transition */
-    outline: none; /* Remove outline for non-focused state */
+    border-radius: 5px; 
+    transition: background-color 0.3s, transform 0.3s; 
+    outline: none; 
 }
 
 .carousel-button:hover {
-    background-color: #138496; /* Darker shade on hover */
+    background-color: #138496; 
+    transform: scale(1.05); 
 }
 
 .carousel-button:focus {
-    outline: 2px solid #00bfff; /* Outline for accessibility */
+    outline: 2px solid #00bfff; 
 }
 
 /* Right side: Background image */
 .background-image {
-    flex: 1; /* Takes the remaining space on the right */
+    flex: 1; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 10px;
+    margin: 10px;
     background-image: url('../images/Home.png');
-    background-size: cover; /* Use cover for better fill */
-    background-repeat: no-repeat; /* No repeat */
-    background-position: center; /* Centered image */
-    animation: verticalSlide 2s infinite alternate; /* Animate up and down faster */
-    transform: translateY(50px); /* Start position slightly down */
-    will-change: transform; /* Hint to the browser about the animation */
+    background-size: 70%; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    animation: verticalSlide 2s infinite alternate; 
+    width: 80%; 
 }
 
 @keyframes verticalSlide {
-    0% { transform: translateY(50px); } /* Start position */
-    100% { transform: translateY(-30px); } /* End position */
+    0% { transform: translateY(5px); } 
+    100% { transform: translateY(-5px); } 
 }
 
-/* Carousel indicators (circle buttons) at bottom center */
+/* Carousel indicators */
 .carousel-indicators {
     display: flex;
-    justify-content: center; /* Center the indicators */
-    position: absolute;
-    bottom: 20px; /* Positioned at the bottom */
+    justify-content: center; 
+    position: relative;
+    bottom: 2%; 
     left: 50%;
-    transform: translateX(-50%); /* Center the indicators */
-    z-index: 10; /* Ensure it appears above other content */
+    transform: translateX(-50%); 
+    z-index: 10; 
 }
 
 .carousel-indicators button {
-    width: 12px; /* Smaller width for a more subtle button */
-    height: 12px; /* Smaller height */
-    border-radius: 50%; /* Circular shape */
-    background-color: #fff; /* White color */
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%; 
+    background-color: #fff; 
     border: none;
-    margin: 0 5px; /* Margin for spacing */
+    margin: 0 5px; 
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .carousel-indicators button:hover {
     background-color: rgba(255, 255, 255, 0.7);
-    transform: scale(1.2); /* Slightly enlarge on hover */
+    transform: scale(1.2); 
 }
 
 .carousel-indicators button.active {
-    background-color: #00bfff; /* Active button color */
+    background-color: #00bfff; 
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .home-container {
-        height: calc(100vh - 50px); /* Adjust for smaller navbar height */
+        height: calc(100vh - 50px); 
     }
 
     .carousel-container {
-        padding: 20px; /* Reduce padding on smaller screens */
+        padding: 20px; 
     }
 
     .carousel-content {
-        max-width: 90%; /* Allow more width on smaller screens */
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .carousel-image {
+        max-width: 80%; /* Allow more width on smaller screens */
     }
 
     .display-4 {
-        font-size: 3rem; /* Adjust font size */
+        font-size: 3rem; 
         font-weight: bolder;
     }
 
     .lead {
-        font-size: 1rem; /* Adjust font size */
+        font-size: 1rem; 
     }
 
     .carousel-button {
-        font-size: 0.9rem; /* Smaller button text */
+        font-size: 0.9rem; 
     }
 
-    /* Adjust carousel indicators for smaller screens */
     .carousel-indicators {
-        bottom: 15px; /* Adjusted for smaller screens */
+        bottom: 15px; 
+    }
+
+    .background-image {
+        width: 90%; 
     }
 }
 
 @media (max-width: 576px) {
     .display-4 {
-        font-size: 2.5rem; /* Further adjust heading for extra small screens */
+        font-size: 2.5rem; 
     }
 
     .lead {
-        font-size: 0.85rem; /* Adjust paragraph for extra small screens */
+        font-size: 0.85rem; 
     }
 }
