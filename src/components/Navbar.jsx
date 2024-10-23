@@ -32,6 +32,7 @@ function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
                 onClick={toggleNavbar}
                 aria-expanded={isOpen}
                 aria-controls="navbarMenu"
+                aria-label="Toggle navigation" // Added aria-label for accessibility
             >
                 {isOpen ? '✖' : '☰'}
             </button>
@@ -52,6 +53,11 @@ function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
                     <li>
                         <a onClick={() => handleSectionClick('enquiry')}>ENQUIRY</a>
                     </li>
+                    {isAdmin && (
+                        <li>
+                            <a onClick={() => handleSectionClick('admin')}>ADMIN</a>
+                        </li>
+                    )}
                     {isAdmin ? (
                         <li>
                             <a onClick={onLogout}>LOGOUT</a>

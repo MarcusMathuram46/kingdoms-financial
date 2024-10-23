@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/Why.css';
-import expertManagementImage from '../images/Why-1.jpg';
-import secureInvestmentImage from '../images/Why-2.jpg';
-import instantTradingImage from '../images/Why-3.jpg';
-import happyCustomersImage from '../images/Why-4.jpg';
+import expertManagementImage from '../images/Why-1.png';
+import secureInvestmentImage from '../images/Why-2.png';
+import instantTradingImage from '../images/Why-3.png';
+import happyCustomersImage from '../images/Why-4.png';
 
 function Why() {
   return (
