@@ -77,6 +77,25 @@ textarea {
     margin-bottom: 10px;
 }
 
+/* Advertisement list styling */
+.advertisement-list {
+    display: flex;
+    flex-direction: column; /* Stack advertisements vertically */
+    margin-top: 20px; /* Space above the advertisement list */
+    width: 100%; /* Full width */
+}
+
+.advertisement-item {
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between items */
+    padding: 10px; /* Padding around each advertisement */
+    border: 1px solid #ccc; /* Border for separation */
+    border-radius: 4px;
+    margin-bottom: 10px; /* Space between advertisements */
+}
+
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
     .admin-container {
@@ -102,6 +121,12 @@ textarea {
     .submit-button {
         padding: 10px; /* Consistent padding for button */
         font-size: 0.9rem; /* Slightly smaller font size for button */
+    }
+
+    .advertisement-item {
+        flex-direction: column; /* Stack advertisement items vertically on small screens */
+        align-items: flex-start; /* Align items to the start */
+        text-align: left; /* Left-align text */
     }
 }
 

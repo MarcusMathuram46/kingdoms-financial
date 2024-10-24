@@ -17,11 +17,7 @@ function Home({ advertisements }) {
     <div className="homes">
       <div id="home" className="home-container">
         <div className="carousel-container">
-          <div
-            id="carouselExample"
-            className="carousel slide"
-            data-bs-ride="carousel"
-          >
+          <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
               {advertisements.length > 0 ? (
                 advertisements.map((ad, index) => (
@@ -29,15 +25,17 @@ function Home({ advertisements }) {
                     className={`carousel-item ${index === 0 ? "active" : ""}`}
                     key={ad._id}
                   >
-                    <div className="carousel-content pt-sm-5">
-                      <h1 className="display-4 text-white pt-sm-5">{ad.title}</h1>
+                    <div className="carousel-content d-flex align-items-center">
+                      <div className="text-container">
+                        <h1 className="display-4 text-white">{ad.title}</h1>
+                        <p className="lead">{ad.description}</p>
+                        <button className="carousel-button">Read More</button>
+                      </div>
                       <img
                         src={ad.image}
                         alt={ad.title}
                         className="carousel-image img-fluid"
                       />
-                      <p className="lead">{ad.description}</p>
-                      <button className="carousel-button">Read More</button>
                     </div>
                   </div>
                 ))
@@ -45,9 +43,7 @@ function Home({ advertisements }) {
                 <div className="carousel-item active">
                   <div className="carousel-content">
                     <h1 className="display-4">No Advertisements Available</h1>
-                    <p className="lead">
-                      Please add advertisements in the admin panel.
-                    </p>
+                    <p className="lead">Please add advertisements in the admin panel.</p>
                   </div>
                 </div>
               )}
@@ -65,7 +61,6 @@ function Home({ advertisements }) {
             </div>
           </div>
         </div>
-        <div className="background-image pr-xl-5"></div>
       </div>
     </div>
   );
