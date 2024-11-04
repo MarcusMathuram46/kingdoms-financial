@@ -8,6 +8,7 @@
 
 .admin-container {
     max-width: 600px; /* Adjust the max width as needed */
+    width: 100%; /* Allow container to take full width */
     margin: 20px auto; /* Center horizontally and add vertical margin */
     padding: 20px; /* Reduced padding for a cleaner look */
     background-color: #f8f9fa; /* Light background for contrast */
@@ -127,6 +128,31 @@ textarea {
         flex-direction: column; /* Stack advertisement items vertically on small screens */
         align-items: flex-start; /* Align items to the start */
         text-align: left; /* Left-align text */
+    }
+
+    .advertisement-item img {
+        max-width: 100%; /* Ensure images are responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* Additional Media Queries for very small screens */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px; /* Even smaller font size for very small screens */
+    }
+
+    .input-group {
+        margin-bottom: 8px; /* Reduce space between inputs */
+    }
+
+    .advertisement-item {
+        padding: 8px; /* Less padding for smaller screens */
+    }
+
+    .submit-button {
+        padding: 8px; /* Reduce padding for button */
+        font-size: 0.85rem; /* Further reduce font size */
     }
 }
 
