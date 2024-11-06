@@ -17,7 +17,11 @@ function Home({ advertisements }) {
     <div className="homes">
       <div id="home" className="home-container">
         <div className="carousel-container">
-          <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
+          <div
+            id="carouselExample"
+            className="carousel slide"
+            data-bs-ride="carousel"
+          >
             <div className="carousel-inner">
               {advertisements.length > 0 ? (
                 advertisements.map((ad, index) => (
@@ -27,7 +31,7 @@ function Home({ advertisements }) {
                   >
                     <div className="carousel-content d-flex align-items-center">
                       <div className="text-container">
-                        <h1 className="display-4 text-white">{ad.title}</h1>
+                        <h1 className="display-4 text-black">{ad.title}</h1>
                         <p className="lead">{ad.description}</p>
                         <button className="carousel-button">Read More</button>
                       </div>
@@ -43,7 +47,9 @@ function Home({ advertisements }) {
                 <div className="carousel-item active">
                   <div className="carousel-content">
                     <h1 className="display-4">No Advertisements Available</h1>
-                    <p className="lead">Please add advertisements in the admin panel.</p>
+                    <p className="lead">
+                      Please add advertisements in the admin panel.
+                    </p>
                   </div>
                 </div>
               )}

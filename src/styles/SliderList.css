@@ -1,0 +1,57 @@
+/* Basic styling for slider-list container */
+.container{
+  background-color: white;
+}
+.slider-list {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading styling */
+.slider-list h2 {
+  text-align: center;
+  color: #001f5b;
+  margin-bottom: 20px;
+}
+
+/* Search bar styling */
+.search-bar {
+  flex: 1;
+  max-width: 300px;
+}
+
+/* Image styling */
+.ad-image {
+  width: 80px;
+  height: auto;
+  border-radius: 4px;
+}
+.modal{
+  padding:100px;
+  align-items: center;
+  justify-content: center;
+}
+.table-container{
+  bo
+}
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .search-bar {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  .table th, .table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

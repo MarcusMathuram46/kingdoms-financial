@@ -1,168 +1,51 @@
-.admin {
-    padding: 40px;
-    display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
-    min-height: 100vh; /* Full viewport height for centering */
-}
+/* Admin.css */
 
 .admin-container {
-    max-width: 600px; /* Adjust the max width as needed */
-    width: 100%; /* Allow container to take full width */
-    margin: 20px auto; /* Center horizontally and add vertical margin */
-    padding: 20px; /* Reduced padding for a cleaner look */
-    background-color: #f8f9fa; /* Light background for contrast */
-    border-radius: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column; /* Stack inputs vertically */
-    justify-content: center; /* Center content vertically within the container */
-    align-items: center; /* Center content horizontally within the container */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.admin-title {
     text-align: center;
-    padding: 10px; /* Reduced padding for better spacing */
-    font-size: 32px; /* Default font size */
-    color: #003366; /* Dark color for better contrast */
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.admin-form {
+.tabs {
     display: flex;
-    flex-direction: column; /* Stack inputs vertically */
-    width: 100%; /* Ensure form takes up full width of container */
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.input-group {
-    margin-bottom: 15px; /* Space between inputs */
-}
-
-input[type="text"],
-textarea {
-    width: 100%; /* Full width for inputs */
-    padding: 20px; /* Increased padding for better touch targets */
+.tab-button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 1em;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem; /* Responsive font size */
-}
-
-textarea {
-    resize: vertical; /* Allow vertical resizing only */
-}
-
-.submit-button {
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    padding: 12px; /* Increased padding for better touch targets */
-    border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    background-color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 1rem; /* Responsive font size */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.submit-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+.tab-button.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
 }
 
-.image-preview {
-    max-width: 100%; /* Ensure the image doesn't overflow */
-    margin-top: 10px;
-    margin-bottom: 15px;
-    height: auto;
-    border-radius: 4px;
+.tab-button:hover {
+    background-color: #e0e0e0;
 }
 
-.error-message {
-    color: red;
-    margin-bottom: 10px;
-}
-
-/* Advertisement list styling */
-.advertisement-list {
-    display: flex;
-    flex-direction: column; /* Stack advertisements vertically */
-    margin-top: 20px; /* Space above the advertisement list */
-    width: 100%; /* Full width */
-}
-
-.advertisement-item {
-    display: flex; /* Use flexbox for horizontal layout */
-    flex-direction: row; /* Arrange items in a row */
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space between items */
-    padding: 10px; /* Padding around each advertisement */
-    border: 1px solid #ccc; /* Border for separation */
-    border-radius: 4px;
-    margin-bottom: 10px; /* Space between advertisements */
-}
-
-/* Media Queries for responsiveness */
-@media (max-width: 768px) {
-    .admin-container {
-        padding: 25px;
-        margin: 20px auto; /* Adjust vertical margin for smaller screens */
-    }
-
-    h1 {
-        font-size: 24px; /* Smaller font size on mobile */
-        margin: 10px 0; /* Ensure there's space around the heading */
-    }
-
-    .input-group {
-        margin-bottom: 10px;
-    }
-
-    input[type="text"],
-    textarea {
-        padding: 20px; /* Consistent padding on smaller screens */
-        font-size: 0.9rem; /* Slightly smaller font size on mobile */
-    }
-
-    .submit-button {
-        padding: 10px; /* Consistent padding for button */
-        font-size: 0.9rem; /* Slightly smaller font size for button */
-    }
-
-    .advertisement-item {
-        flex-direction: column; /* Stack advertisement items vertically on small screens */
-        align-items: flex-start; /* Align items to the start */
-        text-align: left; /* Left-align text */
-    }
-
-    .advertisement-item img {
-        max-width: 100%; /* Ensure images are responsive */
-        height: auto; /* Maintain aspect ratio */
-    }
-}
-
-/* Additional Media Queries for very small screens */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 20px; /* Even smaller font size for very small screens */
-    }
-
-    .input-group {
-        margin-bottom: 8px; /* Reduce space between inputs */
-    }
-
-    .advertisement-item {
-        padding: 8px; /* Less padding for smaller screens */
-    }
-
-    .submit-button {
-        padding: 8px; /* Reduce padding for button */
-        font-size: 0.85rem; /* Further reduce font size */
-    }
-}
-
-/* Ensure that the container has a consistent height on smaller screens */
-@media (max-height: 600px) {
-    .admin-container {
-        margin-top: 50px; /* Reduce top margin on small screens */
-        margin-bottom: 20px; /* Reduce bottom margin on small screens */
-        padding: 50px; /* Reduce padding on small screens */
-        align-items: center;
-        justify-content: center;
-    }
+.tab-content {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

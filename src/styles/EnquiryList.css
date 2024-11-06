@@ -1,0 +1,77 @@
+.enquiry-list {
+    background-color: white;
+    padding: 100px;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    color: #003366;
+    font-weight: bold;
+}
+
+.controls {
+    margin-bottom: 15px;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+.button-group .btn {
+    min-width: 100px;
+}
+
+.table {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.table th {
+    background-color: #003366;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table td, .table th {
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+    }
+
+    .search-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .button-group .btn {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .table th, .table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+}

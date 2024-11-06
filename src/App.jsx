@@ -10,70 +10,85 @@ import Why from './components/Why';
 import Enquiry from './components/Enquiry';
 import Footer from './components/Footer';
 import Admin from './components/Admin';
-import axios from 'axios'; // Import axios for API calls
+import SliderList from './components/SliderList';
+import VisitorList from './components/VisitorList';
+import EnquiryList from './components/EnquiryList';
+import axios from 'axios';
+import { ClipLoader } from 'react-spinners'; // Importing the spinner
 
 function App() {
     const [showLogin, setShowLogin] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(() => {
-        // Check localStorage for admin state
-        const savedIsAdmin = localStorage.getItem('isAdmin');
-        return savedIsAdmin === 'true'; // Return true or false based on localStorage
-    });
+    const [isAdmin, setIsAdmin] = useState(() => JSON.parse(localStorage.getItem('isAdmin')) || false);
     const [activeSection, setActiveSection] = useState('home');
     const [advertisements, setAdvertisements] = useState([]);
+    const [enquiries, setEnquiries] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [loadingAdvertisements, setLoadingAdvertisements] = useState(true);
+    const [loadingEnquiries, setLoadingEnquiries] = useState(true);
 
-    // Fetch advertisements on component mount
+    // Fetch advertisements when component mounts
+    const fetchAdvertisements = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/advertisements');
+            setAdvertisements(response.data);
+        } catch (error) {
+            setErrorMessage('Error fetching advertisements');
+            console.error(error);
+        } finally {
+            setLoadingAdvertisements(false); // Stop loading after data is fetched
+        }
+    };
+
+    // Fetch enquiries when component mounts
+    const fetchEnquiries = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/enquiries');
+            setEnquiries(response.data);
+            setErrorMessage(""); // Clear previous errors
+        } catch (error) {
+            setErrorMessage('Error fetching enquiries');
+            console.error(error);
+        } finally {
+            setLoadingEnquiries(false); // Stop loading after data is fetched
+        }
+    };
+
     useEffect(() => {
-        const fetchAdvertisements = async () => {
-            try {
-                const response = await axios.get('http://localhost:5000/api/advertisements');
-                setAdvertisements(response.data); // Set the advertisements in state
-            } catch (error) {
-                console.error('Error fetching advertisements:', error);
-            }
-        };
+        fetchAdvertisements();
+        fetchEnquiries();
+    }, []); // Empty dependency array ensures this only runs on mount
 
-        fetchAdvertisements(); // Call the function on component mount
-    }, []); // Empty dependency array ensures this runs only once when the component mounts
-
-    // Show login modal
     const handleLoginClick = () => setShowLogin(true);
-
-    // Close login modal
     const closeLogin = () => setShowLogin(false);
 
-    // Handle successful login (admin access granted)
     const handleLoginSuccess = () => {
         setIsAdmin(true);
-        localStorage.setItem('isAdmin', 'true'); // Persist admin state in localStorage
+        localStorage.setItem('isAdmin', JSON.stringify(true));
         setActiveSection('admin');
         closeLogin();
     };
 
-    // Add advertisements sent from Admin component
-    const handleAddAdvertisement = (ad) => {
-        setAdvertisements((prevAds) => [...prevAds, ad]);
-    };
-
-    // Handle logout: clear admin access and redirect to home
     const handleLogout = () => {
         setIsAdmin(false);
-        localStorage.removeItem('isAdmin'); // Remove admin state from localStorage
+        localStorage.removeItem('isAdmin');
         setActiveSection('home');
     };
 
-    // Function to render the selected section's component
-    const renderComponents = () => {
+    const renderAdminComponents = () => {
         switch (activeSection) {
-            case 'home':
-                return (
-                    <>
-                        <Home advertisements={advertisements} />
-                        <Services />
-                        <About />
-                        <Why />
-                    </>
-                );
+            case 'sliderList':
+                return <SliderList />;
+            case 'visitorList':
+                return <VisitorList />;
+            case 'enquiryList':
+                return <EnquiryList enquiries={enquiries} fetchEnquiries={fetchEnquiries} />;
+            default:
+                return <SliderList />;
+        }
+    };
+
+    const renderUserComponents = () => {
+        switch (activeSection) {
             case 'services':
                 return <Services />;
             case 'about':
@@ -81,16 +96,23 @@ function App() {
             case 'why':
                 return <Why />;
             case 'enquiry':
-                return <Enquiry />;
-            case 'admin':
-                return isAdmin ? <Admin onAddAdvertisement={handleAddAdvertisement} /> : null; // Only render Admin if isAdmin is true
+                return <Enquiry fetchEnquiries={fetchEnquiries} />;
+            case 'home':
             default:
                 return (
                     <>
-                        <Home advertisements={advertisements} />
-                        <Services />
-                        <About />
-                        <Why />
+                        {loadingAdvertisements || loadingEnquiries ? (
+                            <div className="spinner-container">
+                                <ClipLoader color="#000" loading={true} size={50} />
+                            </div>
+                        ) : (
+                            <>
+                                <Home advertisements={advertisements} />
+                                <About />
+                                <Services />
+                                <Why />
+                            </>
+                        )}
                     </>
                 );
         }
@@ -98,21 +120,15 @@ function App() {
 
     return (
         <div className="App">
-            {/* Navbar with admin and section navigation control */}
             <Navbar
                 isAdmin={isAdmin}
                 onLoginClick={handleLoginClick}
                 onSectionChange={setActiveSection}
-                onLogout={handleLogout} // Updated logout handler
+                onLogout={handleLogout}
             />
-
-            {/* Render selected section */}
-            <div>{renderComponents()}</div>
-
-            {/* Render Footer on every page */}
-            <Footer />
-
-            {/* Login modal */}
+            <div>{isAdmin ? renderAdminComponents() : renderUserComponents()}</div>
+            {!isAdmin && <Footer />}
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
             <Login show={showLogin} onClose={closeLogin} onLoginSuccess={handleLoginSuccess} />
         </div>
     );

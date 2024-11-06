@@ -19,6 +19,7 @@
 .about-title {
     font-size: 2rem;
     font-weight: bolder;
+    color: white;
 }
 
 .about-light-blue {
@@ -50,6 +51,7 @@
 
 .about-subtitle {
     margin-top: 0; /* Remove margin above subtitle */
+    color: white;
 }
 
 /* Adjust the button color */
