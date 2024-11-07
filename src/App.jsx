@@ -14,12 +14,12 @@ import SliderList from './components/SliderList';
 import VisitorList from './components/VisitorList';
 import EnquiryList from './components/EnquiryList';
 import axios from 'axios';
-import { ClipLoader } from 'react-spinners'; // Importing the spinner
+import { ClipLoader } from 'react-spinners';
 
 function App() {
     const [showLogin, setShowLogin] = useState(false);
     const [isAdmin, setIsAdmin] = useState(() => JSON.parse(localStorage.getItem('isAdmin')) || false);
-    const [activeSection, setActiveSection] = useState('home');
+    const [activeSection, setActiveSection] = useState('home'); // Set initial section to 'home'
     const [advertisements, setAdvertisements] = useState([]);
     const [enquiries, setEnquiries] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
@@ -35,7 +35,7 @@ function App() {
             setErrorMessage('Error fetching advertisements');
             console.error(error);
         } finally {
-            setLoadingAdvertisements(false); // Stop loading after data is fetched
+            setLoadingAdvertisements(false);
         }
     };
 
@@ -44,19 +44,20 @@ function App() {
         try {
             const response = await axios.get('http://localhost:5000/api/enquiries');
             setEnquiries(response.data);
-            setErrorMessage(""); // Clear previous errors
+            setErrorMessage("");
         } catch (error) {
             setErrorMessage('Error fetching enquiries');
             console.error(error);
         } finally {
-            setLoadingEnquiries(false); // Stop loading after data is fetched
+            setLoadingEnquiries(false);
         }
     };
 
     useEffect(() => {
         fetchAdvertisements();
         fetchEnquiries();
-    }, []); // Empty dependency array ensures this only runs on mount
+        setActiveSection('home'); // Ensure the active section is set to 'home' on initial load
+    }, []);
 
     const handleLoginClick = () => setShowLogin(true);
     const closeLogin = () => setShowLogin(false);

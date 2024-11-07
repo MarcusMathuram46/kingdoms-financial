@@ -36,7 +36,8 @@
   justify-content: center;
 }
 .table-container{
-  bo
+  box-sizing: border-box ;
+  box-shadow: #6b6969;
 }
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {

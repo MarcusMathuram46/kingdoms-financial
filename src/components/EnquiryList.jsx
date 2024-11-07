@@ -59,80 +59,84 @@ function EnquiryList() {
   );
 
   return (
-    <div className="enquiry-list container mt-4">
-      <h2 className="text-center">ENQUIRED LIST</h2>
+    <div className='enquiry-container'>
+      <div className="enquiry-list container mt-4 mb-5 p-4 shadow-sm">
+      <h2 className="text-center mb-4">ENQUIRED LIST</h2>
       <div className="controls d-flex flex-wrap justify-content-between align-items-center mb-3">
         <input
           type="text"
           placeholder="Enter your search..."
           value={searchQuery}
           onChange={handleSearch}
-          className="search-input form-control me-2"
+          className="search-input form-control me-2 mb-2 mb-md-0"
         />
-        <div className="button-group d-flex">
+        <div className="button-group d-flex flex-wrap">
           <button 
             onClick={handleSelectAll} 
-            className="btn btn-outline-primary me-2"
+            className="btn btn-outline-primary me-2 mb-2"
           >
             Select All
           </button>
           <button 
             onClick={handleDeleteSelected} 
-            className="btn btn-danger" 
+            className="btn btn-danger mb-2" 
             disabled={selectedEnquiries.size === 0}
           >
             Delete Selected
           </button>
         </div>
       </div>
-      <table className="table table-bordered table-responsive-md">
-        <thead>
-          <tr>
-            <th>
-              <input 
-                type="checkbox" 
-                onChange={handleSelectAll} 
-                checked={selectedEnquiries.size === enquiries.length} 
-              />
-            </th>
-            <th>Sno</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Mobile</th>
-            <th>Subject</th>
-            <th>Address</th>
-            <th>Message</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredEnquiries.length > 0 ? (
-            filteredEnquiries.map((enquiry, index) => (
-              <tr key={enquiry._id}>
-                <td>
-                  <input 
-                    type="checkbox" 
-                    checked={selectedEnquiries.has(enquiry._id)} 
-                    onChange={() => handleSelect(enquiry._id)} 
-                  />
-                </td>
-                <td>{index + 1}</td>
-                <td>{enquiry.name}</td>
-                <td>{enquiry.email}</td>
-                <td>{enquiry.mobile}</td>
-                <td>{enquiry.subject}</td>
-                <td>{enquiry.address}</td>
-                <td>{enquiry.message}</td>
-                <td>{new Date(enquiry.time || Date.now()).toLocaleString()}</td>
-              </tr>
-            ))
-          ) : (
+      <div className="table-responsive">
+        <table className="table table-bordered text-center">
+          <thead>
             <tr>
-              <td colSpan="9" className="text-center">No results found</td>
+              <th>
+                <input 
+                  type="checkbox" 
+                  onChange={handleSelectAll} 
+                  checked={selectedEnquiries.size === enquiries.length} 
+                />
+              </th>
+              <th>Sno</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>Subject</th>
+              <th>Address</th>
+              <th>Message</th>
+              <th>Time</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredEnquiries.length > 0 ? (
+              filteredEnquiries.map((enquiry, index) => (
+                <tr key={enquiry._id}>
+                  <td>
+                    <input 
+                      type="checkbox" 
+                      checked={selectedEnquiries.has(enquiry._id)} 
+                      onChange={() => handleSelect(enquiry._id)} 
+                    />
+                  </td>
+                  <td>{index + 1}</td>
+                  <td>{enquiry.name}</td>
+                  <td>{enquiry.email}</td>
+                  <td>{enquiry.mobile}</td>
+                  <td>{enquiry.subject}</td>
+                  <td>{enquiry.address}</td>
+                  <td>{enquiry.message}</td>
+                  <td>{new Date(enquiry.time || Date.now()).toLocaleString()}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="9" className="text-center">No results found</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
     </div>
   );
 }

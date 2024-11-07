@@ -1,8 +1,10 @@
+.enquiry-container{
+    padding: 40px;
+}
 .enquiry-list {
-    background-color: white;
-    padding: 100px;
+    background-color: #fff;
     border-radius: 8px;
-    max-width: 1200px;
+    max-width: 100%;
     margin: auto;
 }
 
@@ -18,29 +20,28 @@ h2 {
 .search-input {
     width: 100%;
     max-width: 300px;
-    margin-bottom: 10px;
 }
 
 .button-group .btn {
-    min-width: 100px;
+    min-width: 120px;
 }
 
 .table {
-    width: 100%;
     margin-top: 15px;
+    width: 100%;
+    font-size: 1rem;
 }
 
 .table th {
     background-color: #003366;
     color: white;
     font-weight: bold;
-    text-align: center;
 }
 
 .table td, .table th {
-    padding: 12px 10px;
-    text-align: center;
+    padding: 10px;
     border: 1px solid #ddd;
+    vertical-align: middle;
 }
 
 .table tbody tr:nth-child(even) {
@@ -51,27 +52,28 @@ h2 {
     background-color: #f1f1f1;
 }
 
+/* Responsiveness */
 @media (max-width: 768px) {
     .controls {
         flex-direction: column;
     }
 
-    .search-input {
+    .search-input, .button-group .btn {
         width: 100%;
         margin-bottom: 10px;
     }
 
-    .button-group .btn {
-        width: 100%;
-        margin-top: 5px;
+    .table {
+        font-size: 0.9rem;
     }
 
     .table th, .table td {
         padding: 8px;
-        font-size: 14px;
     }
+}
 
+@media (max-width: 576px) {
     .table {
-        font-size: 14px;
+        font-size: 0.85rem;
     }
 }
