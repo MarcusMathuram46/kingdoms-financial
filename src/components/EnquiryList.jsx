@@ -60,7 +60,7 @@ function EnquiryList() {
 
   return (
     <div className='enquiry-container'>
-      <div className="enquiry-list container mt-4 mb-5 p-4 shadow-sm">
+      <div className="enquiry-list">
       <h2 className="text-center mb-4">ENQUIRED LIST</h2>
       <div className="controls d-flex flex-wrap justify-content-between align-items-center mb-3">
         <input

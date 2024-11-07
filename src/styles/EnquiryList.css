@@ -2,10 +2,17 @@
     padding: 40px;
 }
 .enquiry-list {
-    background-color: #fff;
-    border-radius: 8px;
-    max-width: 100%;
-    margin: auto;
+    width: 90%;
+  max-width: 1200px;
+  margin: 90px;
+  padding: 40px;
+  color: #003366; /* Consistent color theme */
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow:1px 1px 10px 1px lightblue;
 }
 
 h2 {
@@ -54,6 +61,11 @@ h2 {
 
 /* Responsiveness */
 @media (max-width: 768px) {
+    .enquiry-list{
+        padding: 20px;
+    margin: 50px;
+    width:90%;
+    }
     .controls {
         flex-direction: column;
     }

@@ -116,7 +116,7 @@ function VisitorList() {
 
   return (
     <div className="visitor-container">
-      <div className="visitor-list container mt-5">
+      <div className="visitor-list">
         <h2 className="text-center mb-4">Visitor List</h2>
         {errorMessage && <p className="text-danger">{errorMessage}</p>}
         
