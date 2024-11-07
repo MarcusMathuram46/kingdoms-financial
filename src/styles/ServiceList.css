@@ -1,0 +1,96 @@
+/* Basic styling for service-list container */
+.container {
+    background-color: white;
+    padding: 20px;
+  }
+  
+  /* Service List Container */
+  .service-list {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    color: #333;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Heading styling */
+  .service-list h2 {
+    text-align: center;
+    color: #001f5b;
+    margin-bottom: 30px;
+    font-size: 2rem;
+  }
+  
+  /* Search bar styling */
+  .search-bar {
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  /* Button group */
+  .btn-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Image styling for services */
+  .service-image {
+    width: 80px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  /* Table container styling */
+  .table-container {
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table styling */
+  .table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 1024px) {
+    .service-list {
+      padding: 20px;
+    }
+    .service-list h2 {
+      font-size: 1.5rem;
+    }
+    .search-bar {
+      width: 100%;
+    }
+    .btn-group {
+      flex-direction: column;
+      width: 100%;
+    }
+    .btn {
+      width: 100%;
+      margin: 5px 0;
+    }
+    .service-image {
+      width: 60px;
+    }
+  }
+  
+  /* Extra-small screens */
+  @media (max-width: 768px) {
+    .service-list {
+        padding: 20px;
+        margin: 50px;
+        width:90%;
+        overflow-x: auto
+    }
+    .table-container {
+      overflow-x: auto;
+    }
+    .modal {
+      width: 90%;
+    }
+  }
+  

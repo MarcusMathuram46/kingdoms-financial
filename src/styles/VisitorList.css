@@ -45,6 +45,7 @@ h2 {
     padding: 20px;
     margin: 50px;
     width:90%;
+    overflow-x: auto
   }
   .visitor-list-controls {
       flex-direction: column;

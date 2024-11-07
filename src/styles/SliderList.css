@@ -144,6 +144,7 @@
     padding: 20px;
     margin: 50px;
     width:100%;
+    overflow-x: auto
   }
 
   .slider-list h2 {

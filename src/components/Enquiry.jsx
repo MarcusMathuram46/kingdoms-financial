@@ -1,8 +1,9 @@
+// Enquiry.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/Enquiry.css';
 
-function Enquiry() {
+function Enquiry({ fetchEnquiries }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
@@ -17,19 +18,21 @@ function Enquiry() {
         name, email, mobile, subject, address, message
       });
       alert("Enquiry submitted successfully");
-      // Clear form fields after submission
       setName('');
       setEmail('');
       setMobile('');
       setSubject('');
       setAddress('');
       setMessage('');
+      
+      // Fetch updated enquiries after submitting
+      fetchEnquiries();
     } catch (error) {
       console.error("Error submitting enquiry:", error);
       alert("Failed to submit enquiry. Please try again.");
     }
   };
-  
+
   return (
     <div className='bg-white'>
       <div id='enquiry' className="enquiry-container">
@@ -37,7 +40,6 @@ function Enquiry() {
         <p className="enquiry-description">
           If you have any queries, please contact us. We’d love to hear from you! Please fill out the form below, and our team will get back to you as soon as possible.
         </p>
-
         <div className="enquiry-content">
           <div className="enquiry-form-container">
             <form onSubmit={handleSubmit} className="enquiry-form">

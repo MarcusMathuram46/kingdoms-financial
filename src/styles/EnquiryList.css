@@ -63,8 +63,9 @@ h2 {
 @media (max-width: 768px) {
     .enquiry-list{
         padding: 20px;
-    margin: 50px;
-    width:90%;
+        margin: 50px;
+        width:90%;
+        overflow-x: auto
     }
     .controls {
         flex-direction: column;

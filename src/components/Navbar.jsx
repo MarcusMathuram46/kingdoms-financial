@@ -41,6 +41,12 @@ function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
                 </a>
               </li>
               <li>
+                <a onClick={() => handleSectionClick("serviceList")}>
+                  Service
+                </a>
+              </li>
+
+              <li>
                 <a onClick={() => handleSectionClick("visitorList")}>
                   Visitor List
                 </a>

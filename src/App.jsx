@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
@@ -9,24 +10,25 @@ import About from './components/About';
 import Why from './components/Why';
 import Enquiry from './components/Enquiry';
 import Footer from './components/Footer';
-import Admin from './components/Admin';
 import SliderList from './components/SliderList';
 import VisitorList from './components/VisitorList';
 import EnquiryList from './components/EnquiryList';
+import ServiceList from './components/ServiceList';
 import axios from 'axios';
 import { ClipLoader } from 'react-spinners';
 
 function App() {
     const [showLogin, setShowLogin] = useState(false);
     const [isAdmin, setIsAdmin] = useState(() => JSON.parse(localStorage.getItem('isAdmin')) || false);
-    const [activeSection, setActiveSection] = useState('home'); // Set initial section to 'home'
+    const [activeSection, setActiveSection] = useState('home');
     const [advertisements, setAdvertisements] = useState([]);
     const [enquiries, setEnquiries] = useState([]);
+    const [services, setServices] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     const [loadingAdvertisements, setLoadingAdvertisements] = useState(true);
     const [loadingEnquiries, setLoadingEnquiries] = useState(true);
+    const [loadingServices, setLoadingServices] = useState(true);
 
-    // Fetch advertisements when component mounts
     const fetchAdvertisements = async () => {
         try {
             const response = await axios.get('http://localhost:5000/api/advertisements');
@@ -39,7 +41,6 @@ function App() {
         }
     };
 
-    // Fetch enquiries when component mounts
     const fetchEnquiries = async () => {
         try {
             const response = await axios.get('http://localhost:5000/api/enquiries');
@@ -53,10 +54,23 @@ function App() {
         }
     };
 
+    const fetchServices = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/services');
+            setServices(response.data);
+        } catch (error) {
+            setErrorMessage('Error fetching services');
+            console.error(error);
+        } finally {
+            setLoadingServices(false);
+        }
+    };
+
     useEffect(() => {
         fetchAdvertisements();
         fetchEnquiries();
-        setActiveSection('home'); // Ensure the active section is set to 'home' on initial load
+        fetchServices();
+        setActiveSection('home');
     }, []);
 
     const handleLoginClick = () => setShowLogin(true);
@@ -83,6 +97,8 @@ function App() {
                 return <VisitorList />;
             case 'enquiryList':
                 return <EnquiryList enquiries={enquiries} fetchEnquiries={fetchEnquiries} />;
+            case 'serviceList':
+                return <ServiceList services={services} fetchServices={fetchServices} />;
             default:
                 return <SliderList />;
         }
@@ -91,7 +107,7 @@ function App() {
     const renderUserComponents = () => {
         switch (activeSection) {
             case 'services':
-                return <Services />;
+                return <Services services={services} />;
             case 'about':
                 return <About />;
             case 'why':
@@ -102,7 +118,7 @@ function App() {
             default:
                 return (
                     <>
-                        {loadingAdvertisements || loadingEnquiries ? (
+                        {loadingAdvertisements || loadingEnquiries || loadingServices ? (
                             <div className="spinner-container">
                                 <ClipLoader color="#000" loading={true} size={50} />
                             </div>
@@ -110,7 +126,7 @@ function App() {
                             <>
                                 <Home advertisements={advertisements} />
                                 <About />
-                                <Services />
+                                <Services services={services} />
                                 <Why />
                             </>
                         )}
