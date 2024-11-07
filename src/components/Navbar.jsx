@@ -13,11 +13,21 @@ function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
     onLoginClick();
   };
 
-  const handleSectionClick = (section) => {
+  const handleSectionClick = (sectionId) => {
     closeNavbar();
-    onSectionChange(section);
+    onSectionChange(sectionId);
+  
+    // Smooth scroll to the target section from the top
+    const targetElement = document.getElementById(sectionId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        left: 0, // Ensures no horizontal scrolling
+        behavior: "smooth",
+      });
+    }
   };
-
+  
   return (
     <header className="navbar-container">
       <div className="navbar-brand">KINGDOMS FINANCIAL</div>
@@ -45,7 +55,6 @@ function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
                   Service
                 </a>
               </li>
-
               <li>
                 <a onClick={() => handleSectionClick("visitorList")}>
                   Visitor List
@@ -56,7 +65,6 @@ function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
                   Enquiry List
                 </a>
               </li>
-
               <li>
                 <a onClick={onLogout}>LOGOUT</a>
               </li>

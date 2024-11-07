@@ -1,0 +1,85 @@
+/* Admin Component Container */
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  background-color: #1c126d; /* Background matching footer */
+}
+
+/* Title Styling */
+.admin-title {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.highlighted-text {
+  color: #00e1ff; /* Light blue accent */
+}
+
+/* Admin Image Styling */
+.admin-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover;
+  margin: 15px 0;
+  transition: transform 0.3s ease;
+}
+
+.admin-image:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Admin Text Styling */
+.admin-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.admin-role {
+  font-size: 1rem;
+  color: #ccc; /* Slightly lighter text for the role */
+}
+
+/* Responsive Styling */
+@media (min-width: 1024px) {
+  .admin-image {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-title {
+    font-size: 1.5rem;
+  }
+
+  .admin-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .admin-name,
+  .admin-role {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-title {
+    font-size: 1.3rem;
+  }
+
+  .admin-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .admin-name,
+  .admin-role {
+    font-size: 0.9rem;
+  }
+}

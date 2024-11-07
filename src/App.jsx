@@ -16,6 +16,7 @@ import EnquiryList from './components/EnquiryList';
 import ServiceList from './components/ServiceList';
 import axios from 'axios';
 import { ClipLoader } from 'react-spinners';
+import Admin from './components/Admin';
 
 function App() {
     const [showLogin, setShowLogin] = useState(false);
@@ -28,6 +29,11 @@ function App() {
     const [loadingAdvertisements, setLoadingAdvertisements] = useState(true);
     const [loadingEnquiries, setLoadingEnquiries] = useState(true);
     const [loadingServices, setLoadingServices] = useState(true);
+
+    // Scroll to top on page load
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     const fetchAdvertisements = async () => {
         try {
@@ -127,6 +133,7 @@ function App() {
                                 <Home advertisements={advertisements} />
                                 <About />
                                 <Services services={services} />
+                                <Admin /> 
                                 <Why />
                             </>
                         )}

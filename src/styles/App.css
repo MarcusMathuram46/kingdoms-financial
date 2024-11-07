@@ -7,6 +7,10 @@ html, body {
   height: 100%;
   scroll-behavior: smooth;
 }
+/* Global overflow prevention */
+body {
+  overflow-x: hidden;
+}
 
 .App {
   position: relative;
