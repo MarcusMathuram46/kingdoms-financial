@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
-function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
+function Navbar({ isAdmin, onLoginClick, onLogout }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => setIsOpen(!isOpen);
@@ -13,21 +14,6 @@ function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
     onLoginClick();
   };
 
-  const handleSectionClick = (sectionId) => {
-    closeNavbar();
-    onSectionChange(sectionId);
-  
-    // Smooth scroll to the target section from the top
-    const targetElement = document.getElementById(sectionId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        left: 0, // Ensures no horizontal scrolling
-        behavior: "smooth",
-      });
-    }
-  };
-  
   return (
     <header className="navbar-container">
       <div className="navbar-brand">KINGDOMS FINANCIAL</div>
@@ -46,24 +32,16 @@ function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
           {isAdmin ? (
             <>
               <li>
-                <a onClick={() => handleSectionClick("sliderList")}>
-                  Slider List
-                </a>
+                <Link to="/admin/slider-list">Slider List</Link>
               </li>
               <li>
-                <a onClick={() => handleSectionClick("serviceList")}>
-                  Service
-                </a>
+                <Link to="/admin/service-list">Service</Link>
               </li>
               <li>
-                <a onClick={() => handleSectionClick("visitorList")}>
-                  Visitor List
-                </a>
+                <Link to="/admin/visitor-list">Visitor List</Link>
               </li>
               <li>
-                <a onClick={() => handleSectionClick("enquiryList")}>
-                  Enquiry List
-                </a>
+                <Link to="/admin/enquiry-list">Enquiry List</Link>
               </li>
               <li>
                 <a onClick={onLogout}>LOGOUT</a>
@@ -72,21 +50,19 @@ function Navbar({ isAdmin, onLoginClick, onSectionChange, onLogout }) {
           ) : (
             <>
               <li>
-                <a onClick={() => handleSectionClick("home")}>HOME</a>
+                <Link to="/">HOME</Link>
               </li>
               <li>
-                <a onClick={() => handleSectionClick("services")}>
-                  OUR SERVICES
-                </a>
+                <Link to="/services">OUR SERVICES</Link>
               </li>
               <li>
-                <a onClick={() => handleSectionClick("about")}>ABOUT US</a>
+                <Link to="/about">ABOUT US</Link>
               </li>
               <li>
-                <a onClick={() => handleSectionClick("why")}>WHY CHOOSE US</a>
+                <Link to="/why">WHY CHOOSE US</Link>
               </li>
               <li>
-                <a onClick={() => handleSectionClick("enquiry")}>ENQUIRY</a>
+                <Link to="/enquiry">ENQUIRY</Link>
               </li>
               <li className="login-button">
                 <a onClick={handleLoginClick}>

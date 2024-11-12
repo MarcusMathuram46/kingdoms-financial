@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import './styles/App.css';
 import Home from './components/Home';
-import Services from './components/Services';  
+import Services from './components/Services';
 import ServiceList from './components/ServiceList';
 import About from './components/About';
 import Why from './components/Why';
@@ -13,14 +14,13 @@ import Footer from './components/Footer';
 import SliderList from './components/SliderList';
 import VisitorList from './components/VisitorList';
 import EnquiryList from './components/EnquiryList';
+import Admin from './components/Admin';
 import axios from 'axios';
 import { ClipLoader } from 'react-spinners';
-import Admin from './components/Admin';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [isAdmin, setIsAdmin] = useState(() => JSON.parse(localStorage.getItem('isAdmin')) || false);
-  const [activeSection, setActiveSection] = useState('home');
   const [advertisements, setAdvertisements] = useState([]);
   const [enquiries, setEnquiries] = useState([]);
   const [services, setServices] = useState([]);
@@ -59,7 +59,6 @@ function App() {
   const fetchServices = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/services');
-      console.log('Fetched services:', response.data); // Debugging line
       setServices(Array.isArray(response.data.services) ? response.data.services : []);
     } catch (error) {
       setErrorMessage('Error fetching services');
@@ -69,12 +68,10 @@ function App() {
     }
   };
 
-  // Fetch data on component mount
   useEffect(() => {
     fetchAdvertisements();
     fetchEnquiries();
     fetchServices();
-    setActiveSection('home');
   }, []);
 
   const handleLoginClick = () => setShowLogin(true);
@@ -83,78 +80,73 @@ function App() {
   const handleLoginSuccess = () => {
     setIsAdmin(true);
     localStorage.setItem('isAdmin', JSON.stringify(true));
-    setActiveSection('admin');
-    closeLogin();
   };
 
   const handleLogout = () => {
     setIsAdmin(false);
     localStorage.removeItem('isAdmin');
-    setActiveSection('home');
-  };
-
-  const renderAdminComponents = () => {
-    switch (activeSection) {
-      case 'sliderList':
-        return <SliderList />;
-      case 'visitorList':
-        return <VisitorList />;
-      case 'enquiryList':
-        return <EnquiryList enquiries={enquiries} fetchEnquiries={fetchEnquiries} />;
-      case 'serviceList':
-        return <ServiceList services={services} fetchServices={fetchServices} />;
-      default:
-        return <SliderList />;
-    }
-  };
-
-  const renderUserComponents = () => {
-    switch (activeSection) {
-      case 'services':
-        return <Services services={services} />;
-      case 'about':
-        return <About />;
-      case 'why':
-        return <Why />;
-      case 'enquiry':
-        return <Enquiry fetchEnquiries={fetchEnquiries} />;
-      case 'home':
-      default:
-        return (
-          <>
-            {loadingAdvertisements || loadingEnquiries || loadingServices ? (
-              <div className="spinner-container">
-                <ClipLoader color="#000" loading={true} size={50} />
-              </div>
-            ) : (
-              <>
-                <Home advertisements={advertisements} />
-                <About />
-                <Services services={services} />
-                {isAdmin && <Admin />} {/* Only render Admin if logged in as admin */}
-                <Why />
-              </>
-            )}
-          </>
-        );
-    }
   };
 
   return (
-    <div className="App">
-      <Navbar
-        isAdmin={isAdmin}
-        onLoginClick={handleLoginClick}
-        onSectionChange={setActiveSection}
-        onLogout={handleLogout}
-      />
-      <div>
-        {isAdmin ? renderAdminComponents() : renderUserComponents()}
+    <Router>
+      <div className="App">
+        <Navbar
+          isAdmin={isAdmin}
+          onLoginClick={handleLoginClick}
+          onLogout={handleLogout}
+        />
+
+        {/* Routes for different components */}
+        <Routes>
+          {/* Public Routes */}
+          <Route
+            path="/"
+            element={
+              loadingAdvertisements || loadingEnquiries || loadingServices ? (
+                <div className="spinner-container">
+                  <ClipLoader color="#000" loading={true} size={50} />
+                </div>
+              ) : (
+                <>
+                  <Home advertisements={advertisements} />
+                  <About />
+                  <Services services={services} />
+                  <Why />
+                </>
+              )
+            }
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services services={services} />} />
+          <Route path="/why" element={<Why />} />
+          <Route path="/enquiry" element={<Enquiry fetchEnquiries={fetchEnquiries} />} />
+
+          {/* Admin Protected Routes */}
+          {isAdmin ? (
+            <>
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/admin/slider-list" element={<SliderList />} />
+              <Route path="/admin/visitor-list" element={<VisitorList />} />
+              <Route path="/admin/enquiry-list" element={<EnquiryList enquiries={enquiries} fetchEnquiries={fetchEnquiries} />} />
+              <Route path="/admin/service-list" element={<ServiceList services={services} fetchServices={fetchServices} />} />
+            </>
+          ) : (
+            <Route path="/admin/*" element={<Navigate to="/" />} />
+          )}
+
+          {/* Redirect to Home for any unknown routes */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+
+        {/* Footer should only appear on public routes */}
+        {!isAdmin && <Footer />}
+
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
+
+        {/* Login Modal */}
+        <Login show={showLogin} onClose={closeLogin} onLoginSuccess={handleLoginSuccess} />
       </div>
-      {!isAdmin && <Footer />}
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
-      <Login show={showLogin} onClose={closeLogin} onLoginSuccess={handleLoginSuccess} />
-    </div>
+    </Router>
   );
 }
 
