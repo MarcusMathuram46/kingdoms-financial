@@ -5,7 +5,7 @@ import Login from './components/Login';
 import './styles/App.css';
 import Home from './components/Home';
 import Services from './components/Services';  
-import ServiceList from './components/ServiceList';  // Import ServiceList
+import ServiceList from './components/ServiceList';
 import About from './components/About';
 import Why from './components/Why';
 import Enquiry from './components/Enquiry';
@@ -58,18 +58,16 @@ function App() {
   // Fetch Services
   const fetchServices = async () => {
     try {
-        const response = await axios.get('http://localhost:5000/api/services');
-        console.log('Fetched services:', response.data);  // Debugging line
-        setServices(Array.isArray(response.data.services) ? response.data.services : []);
+      const response = await axios.get('http://localhost:5000/api/services');
+      console.log('Fetched services:', response.data); // Debugging line
+      setServices(Array.isArray(response.data.services) ? response.data.services : []);
     } catch (error) {
-        setErrorMessage('Error fetching services');
-        console.error(error);
+      setErrorMessage('Error fetching services');
+      console.error(error);
     } finally {
-        setLoadingServices(false);
+      setLoadingServices(false);
     }
-};
-
-  
+  };
 
   // Fetch data on component mount
   useEffect(() => {
@@ -104,7 +102,7 @@ function App() {
       case 'enquiryList':
         return <EnquiryList enquiries={enquiries} fetchEnquiries={fetchEnquiries} />;
       case 'serviceList':
-        return <ServiceList services={services} fetchServices={fetchServices} />;  // Render ServiceList for managing services
+        return <ServiceList services={services} fetchServices={fetchServices} />;
       default:
         return <SliderList />;
     }
@@ -113,7 +111,7 @@ function App() {
   const renderUserComponents = () => {
     switch (activeSection) {
       case 'services':
-        return <Services services={services} />;  // Display services to the users
+        return <Services services={services} />;
       case 'about':
         return <About />;
       case 'why':
@@ -132,8 +130,8 @@ function App() {
               <>
                 <Home advertisements={advertisements} />
                 <About />
-                <Services services={services} />  {/* Render the Services component here */}
-                <Admin />
+                <Services services={services} />
+                {isAdmin && <Admin />} {/* Only render Admin if logged in as admin */}
                 <Why />
               </>
             )}
@@ -150,7 +148,9 @@ function App() {
         onSectionChange={setActiveSection}
         onLogout={handleLogout}
       />
-      <div>{isAdmin ? renderAdminComponents() : renderUserComponents()}</div>
+      <div>
+        {isAdmin ? renderAdminComponents() : renderUserComponents()}
+      </div>
       {!isAdmin && <Footer />}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       <Login show={showLogin} onClose={closeLogin} onLoginSuccess={handleLoginSuccess} />
