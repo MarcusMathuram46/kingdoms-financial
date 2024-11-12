@@ -31,9 +31,9 @@
 
 /* Use Flexbox for horizontal layout */
 .services-grid {
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: space-between; /* Space items evenly */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 /* Individual service item styling */

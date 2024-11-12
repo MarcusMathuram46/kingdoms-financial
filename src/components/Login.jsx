@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import '../styles/Login.css';
+import "../styles/Login.css";
 import { loginUser } from "../utils/config";
 
 function Login({ show, onClose, onLoginSuccess }) {
@@ -37,8 +37,10 @@ function Login({ show, onClose, onLoginSuccess }) {
         setMessage("Unauthorized access. Only admins can log in.");
       }
     } catch (error) {
-      console.error('Login failed:', error);
-      setMessage(error.response?.data?.message || "Login failed. Please try again.");
+      console.error("Login failed:", error);
+      setMessage(
+        error.response?.data?.message || "Login failed. Please try again."
+      );
     } finally {
       setIsLoading(false); // Stop loading after the API call
     }
@@ -56,32 +58,43 @@ function Login({ show, onClose, onLoginSuccess }) {
   return (
     <div className="login-overlay">
       <div className="login-container">
-        <button className="close-button" onClick={onClose} aria-label="Close Login">✖</button>
+        <button
+          className="close-button"
+          onClick={onClose}
+          aria-label="Close Login"
+        >
+          ✖
+        </button>
         <Form onSubmit={handleLogin}>
           <h2 className="mb-4 text-center">Admin Login</h2>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
-            <Form.Control 
-              type="text" 
-              placeholder="Enter username" 
-              value={userName} 
-              onChange={handleInputChange(setUserName)} 
-              aria-label="Enter username" 
-              required 
+            <Form.Control
+              type="text"
+              placeholder="Enter username"
+              value={userName}
+              onChange={handleInputChange(setUserName)}
+              aria-label="Enter username"
+              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control 
-              type="password" 
-              placeholder="Enter password" 
-              value={password} 
-              onChange={handleInputChange(setPassword)} 
-              aria-label="Enter password" 
-              required 
+            <Form.Control
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={handleInputChange(setPassword)}
+              aria-label="Enter password"
+              required
             />
           </Form.Group>
-          <Button variant="info" type="submit" className="w-100" disabled={isLoading}>
+          <Button
+            variant="info"
+            type="submit"
+            className="w-100"
+            disabled={isLoading}
+          >
             {isLoading ? "Logging in..." : "Login"}
           </Button>
           {message && (

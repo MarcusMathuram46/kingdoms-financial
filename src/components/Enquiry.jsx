@@ -14,25 +14,39 @@ function Enquiry({ fetchEnquiries }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/enquiries", {
+      const response = await axios.post("http://localhost:5000/api/enquiries", {
         name, email, mobile, subject, address, message
       });
+  
       alert("Enquiry submitted successfully");
+  
+      // Clear form fields after submission
       setName('');
       setEmail('');
       setMobile('');
       setSubject('');
       setAddress('');
       setMessage('');
-      
+  
       // Fetch updated enquiries after submitting
       fetchEnquiries();
     } catch (error) {
-      console.error("Error submitting enquiry:", error);
-      alert("Failed to submit enquiry. Please try again.");
+      if (error.response && error.response.data) {
+        // Check if it's a duplicate enquiry error
+        if (error.response.data.message === 'Enquiry with this name and email already exists') {
+          alert("You have already submitted an enquiry with this name and email. Please contact support if you need assistance.");
+        } else {
+          alert(`Failed to submit enquiry: ${error.response.data.message}`);
+        }
+      } else {
+        console.error("Error submitting enquiry:", error);
+        alert("An unexpected error occurred. Please try again.");
+      }
     }
   };
-
+  
+  
+  
   return (
     <div className='bg-white'>
       <div id='enquiry' className="enquiry-container">
