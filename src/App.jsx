@@ -17,6 +17,8 @@ import EnquiryList from './components/EnquiryList';
 import Profile from './components/Profile';
 import axios from 'axios';
 import { ClipLoader } from 'react-spinners';
+import ServiceContent from './components/ServiceContent';
+import ServiceDetail from './components/ServiceDetail';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -124,6 +126,7 @@ function App() {
           )}
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services services={services} />} />
+          <Route path="/service-detail/:id" element={<ServiceDetail />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/why" element={<Why />} />
           <Route path="/enquiry" element={<Enquiry fetchEnquiries={fetchEnquiries} />} />
@@ -135,6 +138,7 @@ function App() {
               <Route path="/admin/visitor-list" element={<VisitorList />} />
               <Route path="/admin/enquiry-list" element={<EnquiryList enquiries={enquiries} fetchEnquiries={fetchEnquiries} />} />
               <Route path="/admin/service-list" element={<ServiceList services={services} fetchServices={fetchServices} />} />
+              <Route path="/service/:serviceName" element={<ServiceContent />} /> {/* Dynamic service page */}
             </>
           ) : (
             <Route path="/admin/*" element={<Navigate to="/" />} />

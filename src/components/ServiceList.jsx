@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../styles/ServiceList.css";
 import { Modal, Button, Table, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function ServiceList({ services, fetchServices }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,6 +15,8 @@ function ServiceList({ services, fetchServices }) {
     image: null,
   });
   const [serviceToUpdate, setServiceToUpdate] = useState(null);
+  
+  const navigate = useNavigate(); 
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -101,6 +104,9 @@ function ServiceList({ services, fetchServices }) {
   const filteredServices = services.filter((service) =>
     service.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  const handleContentClick = (serviceTitle) => {
+    navigate(`/service/${serviceTitle}`); // Redirect to the dynamic service page
+  };
 
   return (
     <div className="container">
@@ -169,7 +175,7 @@ function ServiceList({ services, fetchServices }) {
                       </Button>
                       <Button
                         variant="warning"
-                        onClick={() => handleUpdateService(service)}
+                        onClick={() => handleContentClick(service.title)}
                         className="me-2"
                       >
                         Content

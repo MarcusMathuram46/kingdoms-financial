@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";  // Import Link for navigation
 import "../styles/Services.css";
 
 function Services({ services = [] }) {
-  // Ensure services is an array
   if (!Array.isArray(services)) {
     console.error(
       "Expected services to be an array but received:",
@@ -31,13 +31,17 @@ function Services({ services = [] }) {
             services.map((service, index) => (
               <div className="service-item" key={index}>
                 <img
-                  // Here, we are using the image in a similar way to Home.jsx
-                  src={service.image} 
-                  alt={service.title} 
+                  src={service.image}
+                  alt={service.title}
                   className="service-image img-fluid"
                 />
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
+
+                {/* Add the Read More button with navigation */}
+                <Link to={`/service-detail/${service._id}`}>
+                  <button className="btn btn-primary">Read More</button>
+                </Link>
               </div>
             ))
           )}
