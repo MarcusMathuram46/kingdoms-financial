@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 import SliderList from './components/SliderList';
 import VisitorList from './components/VisitorList';
 import EnquiryList from './components/EnquiryList';
-import Admin from './components/Admin';
+import Profile from './components/Profile';
 import axios from 'axios';
 import { ClipLoader } from 'react-spinners';
 
@@ -80,6 +80,7 @@ function App() {
   const handleLoginSuccess = () => {
     setIsAdmin(true);
     localStorage.setItem('isAdmin', JSON.stringify(true));
+    closeLogin();
   };
 
   const handleLogout = () => {
@@ -98,33 +99,38 @@ function App() {
 
         {/* Routes for different components */}
         <Routes>
-          {/* Public Routes */}
-          <Route
-            path="/"
-            element={
-              loadingAdvertisements || loadingEnquiries || loadingServices ? (
-                <div className="spinner-container">
-                  <ClipLoader color="#000" loading={true} size={50} />
-                </div>
-              ) : (
-                <>
-                  <Home advertisements={advertisements} />
-                  <About />
-                  <Services services={services} />
-                  <Why />
-                </>
-              )
-            }
-          />
+          {/* Redirect to SliderList after login if admin */}
+          {isAdmin ? (
+            <Route path="/" element={<SliderList />} />
+          ) : (
+            <Route
+              path="/"
+              element={
+                loadingAdvertisements || loadingEnquiries || loadingServices ? (
+                  <div className="spinner-container">
+                    <ClipLoader color="#000" loading={true} size={50} />
+                  </div>
+                ) : (
+                  <>
+                    <Home advertisements={advertisements} />
+                    <About />
+                    <Services services={services} />
+                    <Profile />
+                    <Why />
+                  </>
+                )
+              }
+            />
+          )}
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services services={services} />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/why" element={<Why />} />
           <Route path="/enquiry" element={<Enquiry fetchEnquiries={fetchEnquiries} />} />
 
           {/* Admin Protected Routes */}
           {isAdmin ? (
             <>
-              <Route path="/admin" element={<Admin />} />
               <Route path="/admin/slider-list" element={<SliderList />} />
               <Route path="/admin/visitor-list" element={<VisitorList />} />
               <Route path="/admin/enquiry-list" element={<EnquiryList enquiries={enquiries} fetchEnquiries={fetchEnquiries} />} />

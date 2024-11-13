@@ -35,23 +35,6 @@ function ServiceList({ services, fetchServices }) {
     );
   };
 
-  const handleDeleteSelected = async () => {
-    try {
-      const response = await axios({
-        method: "delete",
-        url: "http://localhost:5000/api/services",
-        data: { ids: selectedServices },
-        headers: { "Content-Type": "application/json" },
-      });
-
-      alert("Selected services deleted successfully!");
-      fetchServices();
-      setSelectedServices([]);
-    } catch (error) {
-      console.error("Error deleting services:", error.message);
-    }
-  };
-
   const handleAddNewService = () => {
     setShowAddModal(true);
   };
@@ -138,13 +121,6 @@ function ServiceList({ services, fetchServices }) {
                 : "Select All"}
             </Button>
             <Button
-              className="btn btn-danger ms-2"
-              onClick={handleDeleteSelected}
-              disabled={!selectedServices.length}
-            >
-              Delete Selected
-            </Button>
-            <Button
               className="btn btn-success ms-2"
               onClick={handleAddNewService}
             >
@@ -161,7 +137,7 @@ function ServiceList({ services, fetchServices }) {
                 <th>Title</th>
                 <th>Description</th>
                 <th>Image</th>
-                <th>Action</th>
+                <th>Actions</th>
                 <th>Select</th>
               </tr>
             </thead>
@@ -183,19 +159,22 @@ function ServiceList({ services, fetchServices }) {
                     )}
                   </td>
                   <td>
-                    <Button
-                      variant="warning"
-                      onClick={() => handleUpdateService(service)}
-                    >
-                      Update
-                    </Button>
-                    <Button
-                      variant="danger"
-                      className="ms-2"
-                      onClick={() => handleDeleteSingle(service._id)}
-                    >
-                      Delete
-                    </Button>
+                    <div className="d-flex justify-content-start">
+                      <Button
+                        variant="warning"
+                        onClick={() => handleUpdateService(service)}
+                        className="me-2"
+                      >
+                        Update
+                      </Button>
+                      <Button
+                        variant="warning"
+                        onClick={() => handleUpdateService(service)}
+                        className="me-2"
+                      >
+                        Content
+                      </Button>
+                    </div>
                   </td>
                   <td>
                     <input

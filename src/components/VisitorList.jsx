@@ -54,7 +54,6 @@ function VisitorList() {
           country: "India", // Example country
           visitTime: new Date(),
         });
-        console.log("Visitor recorded:", res.data);
       } catch (error) {
         console.error("Error recording visitor:", error);
       }

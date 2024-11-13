@@ -2,9 +2,6 @@ import React from "react";
 import "../styles/Services.css";
 
 function Services({ services = [] }) {
-  // Debugging to ensure the data type
-  console.log("Services prop:", services);
-
   // Ensure services is an array
   if (!Array.isArray(services)) {
     console.error(
